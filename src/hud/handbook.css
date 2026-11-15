@@ -1,0 +1,1137 @@
+/*
+ * The Mission Handbook: a two-page book with bookmark tabs.
+ *
+ * Its own small design system (src/hud/HandbookParts.tsx), used on every
+ * page: one type scale (sizes for 1366 x 768, growing on bigger screens)
+ * and spacing in 8 px steps.
+ *
+ *   Page title       .hb-title        about 38 px, bold display font
+ *   Section heading  .hb-section      about 27 px, bold
+ *   Card title       .hb-card-title   about 21 px, semibold
+ *   Body             .hb-body         about 19 px, line height 1.5
+ *   Label            .hb-label        about 13 px, uppercase, letter-spaced
+ */
+.handbook-layer {
+  place-items: center;
+  background: rgb(5 7 13 / 0.9);
+}
+
+.handbook {
+  --paper: #f3ecdc;
+  --paper-edge: #e3d8bf;
+  --card: #fbf7ee;
+  --ink: #1d2433;
+  --ink-soft: #4a5468;
+  --tab-meters: #ffd166;
+  --tab-log: #5cc8ff;
+  --tab-better: #4fd18b;
+  --tab-real: #b79cff;
+  --tab-summary: #ff8a2a;
+  --hb-gap: 16px;
+  --hb-pad-x: 40px;
+  --hb-pad-y: 24px;
+  --hb-title: clamp(36px, 2.8vw, 46px);
+  --hb-section: clamp(26px, 2vw, 32px);
+  --hb-card-title: clamp(20px, 1.55vw, 25px);
+  --hb-body: clamp(18px, 1.32vw, 22px);
+  --hb-label: clamp(13px, 0.98vw, 15px);
+  position: relative;
+  display: grid;
+  width: min(1320px, 94vw);
+  height: min(880px, 95vh);
+  padding-right: 64px;
+  outline: none;
+}
+
+/* ---------- The type scale ---------- */
+.hb-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--hb-title);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hb-section {
+  margin: 0;
+  font-size: var(--hb-section);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hb-card-title {
+  margin: 0;
+  font-size: var(--hb-card-title);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.hb-body {
+  margin: 0;
+  font-size: var(--hb-body);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.hb-label {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--hb-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* ---------- The spread and its pages ---------- */
+.handbook__spread {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 0;
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow:
+    0 32px 80px rgb(0 0 0 / 0.55),
+    inset 0 0 0 1px var(--paper-edge);
+  perspective: 1800px;
+  overflow: hidden;
+}
+
+.handbook__spread[data-turn='next'] .page--right,
+.handbook__spread[data-turn='prev'] .page--left {
+  animation: page-turn 420ms var(--ease-out);
+}
+
+.handbook__spread[data-turn='prev'] .page--left {
+  transform-origin: right center;
+  animation-name: page-turn-back;
+}
+
+@keyframes page-turn {
+  from {
+    transform: rotateY(-80deg);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes page-turn-back {
+  from {
+    transform: rotateY(80deg);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.page {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) 40px;
+  gap: var(--hb-gap);
+  min-height: 0;
+  padding: var(--hb-pad-y) var(--hb-pad-x) var(--hb-gap);
+  color: var(--ink);
+  overflow: hidden;
+  transform-origin: left center;
+}
+
+.page--left {
+  background: linear-gradient(90deg, var(--paper) 88%, #e4dac3);
+  border-right: 1px solid var(--paper-edge);
+}
+
+.page--right {
+  background: linear-gradient(90deg, #e4dac3, var(--paper) 12%);
+}
+
+/* What a page holds: blocks, one under the other, never split. */
+.hb-room {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hb-gap);
+  min-height: 0;
+}
+
+.hb-room--end {
+  justify-content: center;
+}
+
+.hb-block[data-flash] > * {
+  animation: hb-flash 1.6s var(--ease-out);
+}
+
+@keyframes hb-flash {
+  0%,
+  40% {
+    box-shadow: 0 0 0 4px #1f5fa8;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* The measuring page: the size of one real page, never seen. */
+.hb-measure {
+  /* Same border as a real left page, so text wraps the same way. */
+  border-right: 1px solid transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: calc((100% - 64px) / 2);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.hb-measure__blocks {
+  position: absolute;
+  top: 0;
+  left: var(--hb-pad-x);
+  right: var(--hb-pad-x);
+}
+
+.page a {
+  color: #1f5fa8;
+}
+
+.page .button {
+  color: var(--ink);
+  border-color: rgb(29 36 51 / 0.25);
+  background: rgb(29 36 51 / 0.06);
+}
+
+.page .button--primary {
+  color: #04121c;
+}
+
+.page .keycap {
+  border-color: rgb(29 36 51 / 0.35);
+  background: rgb(29 36 51 / 0.08);
+  color: var(--ink);
+  box-shadow: none;
+}
+
+.page .live-weather {
+  padding: 12px var(--hb-gap);
+  border: 1px solid var(--paper-edge);
+  border-radius: 12px;
+  background: var(--card);
+  opacity: 1;
+}
+
+.page .live-weather,
+.page .live-weather__text,
+.page .live-weather__source {
+  color: var(--ink);
+  font-size: calc(var(--hb-body) * 0.9);
+}
+
+.page .live-weather__label {
+  color: #9a4a0a;
+}
+
+/* ---------- Page header, continued header, footer ---------- */
+.hb-page-header {
+  --tab: var(--tab-meters);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--hb-gap);
+  align-items: start;
+  padding-bottom: var(--hb-gap);
+  border-bottom: 3px solid var(--tab);
+}
+
+.hb-page-header__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--tab);
+  color: #10141e;
+}
+
+.hb-page-header__icon .stat-icon {
+  color: #10141e;
+}
+
+.hb-page-header__intro {
+  margin-top: 8px;
+  color: var(--ink-soft);
+}
+
+[data-section='log'] {
+  --tab: var(--tab-log);
+}
+
+[data-section='better'] {
+  --tab: var(--tab-better);
+}
+
+[data-section='real'] {
+  --tab: var(--tab-real);
+}
+
+[data-section='summary'] {
+  --tab: var(--tab-summary);
+}
+
+.hb-continued {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--paper-edge);
+}
+
+.hb-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--hb-gap);
+  height: 40px;
+}
+
+.hb-footer[data-side='right'] {
+  justify-content: flex-end;
+}
+
+.hb-turn {
+  padding: 8px 16px;
+  border: 1px solid rgb(29 36 51 / 0.25);
+  border-radius: 999px;
+  background: rgb(29 36 51 / 0.06);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--hb-label);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hb-turn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.hb-turn:not(:disabled):hover {
+  background: rgb(29 36 51 / 0.12);
+}
+
+/* ---------- Day header ---------- */
+.hb-day {
+  --band: #3d7fc2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--hb-gap);
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: var(--band);
+  color: #fff;
+}
+
+.hb-day[data-day='launch'] {
+  --band: #b9500a;
+}
+
+.hb-day[data-day='trip'] {
+  --band: #5a46a8;
+}
+
+.hb-day[data-day='last'] {
+  --band: #23304a;
+}
+
+.hb-day__place {
+  color: rgb(255 255 255 / 0.85);
+}
+
+/* ---------- Cards ---------- */
+.hb-card {
+  display: grid;
+  gap: 8px;
+  padding: 12px var(--hb-gap);
+  border: 1px solid var(--paper-edge);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.hb-card-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--hb-gap);
+  align-items: center;
+}
+
+.hb-card-head[data-picture] {
+  grid-template-columns: 64px 1fr;
+}
+
+.hb-card-head__text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 8px;
+  row-gap: 2px;
+}
+
+.hb-event__picture {
+  display: block;
+  width: 64px;
+  height: 44px;
+  border-radius: 8px;
+}
+
+.hb-event__main {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.hb-event[data-tag='luck'] {
+  border-color: rgb(185 80 10 / 0.45);
+  background: #fbf0e6;
+}
+
+.hb-event[data-tag='consequence'] {
+  border-color: rgb(154 74 10 / 0.35);
+  background: #f9efe3;
+}
+
+.hb-event[data-tag='night'] {
+  background: #eef0f6;
+}
+
+.hb-event[data-tag='ending'] {
+  border: 2px solid var(--ink);
+}
+
+.hb-tag {
+  justify-self: start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgb(29 36 51 / 0.1);
+  color: var(--ink);
+}
+
+.hb-tag[data-kind='luck'] {
+  background: #b9500a;
+  color: #fff;
+}
+
+.hb-tag[data-kind='consequence'] {
+  background: #f2d3b5;
+  color: #6b3200;
+}
+
+.hb-tag[data-kind='night'] {
+  background: #23304a;
+  color: #fff;
+}
+
+.hb-tag[data-kind='milestone'] {
+  background: #d8e6f7;
+  color: #163f6e;
+}
+
+.hb-tag[data-kind='ending'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hb-row {
+  margin: 0;
+}
+
+/* A run-in label: "WHY  Thick walls blocked most of the radiation." */
+.hb-row__label {
+  display: inline;
+  margin-right: 4px;
+  font-size: 12px;
+}
+
+.hb-row .hb-changes {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.hb-changes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: rgb(29 36 51 / 0.07);
+  font-size: calc(var(--hb-label) + 2px);
+  line-height: 1.6;
+}
+
+.hb-change .stat-icon {
+  color: var(--ink);
+}
+
+.hb-change[data-tone='good'] {
+  background: rgb(79 209 139 / 0.22);
+}
+
+.hb-change[data-tone='bad'] {
+  background: rgb(255 107 107 / 0.2);
+}
+
+.hb-word {
+  margin-top: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgb(183 156 255 / 0.18);
+  font-size: calc(var(--hb-body) * 0.9);
+}
+
+.hb-links {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hb-link {
+  padding: 4px 16px;
+  border: 1px solid #1f5fa8;
+  border-radius: 999px;
+  background: transparent;
+  color: #1f5fa8;
+  font-family: var(--font-ui);
+  font-size: var(--hb-label);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hb-link:hover,
+.hb-link:focus-visible {
+  background: #1f5fa8;
+  color: #fff;
+}
+
+/* ---------- Callouts, tiles, verdict ---------- */
+.hb-callout {
+  display: grid;
+  gap: 8px;
+  padding: var(--hb-gap);
+  border-radius: 12px;
+  border: 1px solid rgb(217 161 0 / 0.45);
+  background: rgb(255 209 102 / 0.3);
+}
+
+.hb-callout[data-kind='fact'] {
+  border-color: rgb(31 143 200 / 0.4);
+  background: rgb(92 200 255 / 0.18);
+}
+
+.hb-source {
+  display: block;
+  font-size: var(--hb-label);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hb-tile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 8px;
+  padding: var(--hb-gap);
+  border-radius: 12px;
+  background: var(--card);
+  border: 1px solid var(--paper-edge);
+}
+
+.hb-tile .stat-icon {
+  color: var(--ink);
+}
+
+.hb-tile__value {
+  font-family: var(--font-display);
+  font-size: var(--hb-section);
+  font-weight: 800;
+}
+
+.hb-tile__label {
+  grid-column: 1 / -1;
+}
+
+.hb-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--hb-gap);
+}
+
+.hb-verdict {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 12px;
+  background: #d8f2e3;
+}
+
+.hb-verdict[data-kind='bad'] {
+  background: #fbe0d0;
+}
+
+.hb-verdict[data-kind='luck'] {
+  background: #e7defc;
+}
+
+.hb-verdict__text {
+  font-size: var(--hb-card-title);
+  font-weight: 600;
+}
+
+/* ---------- Meters ---------- */
+.hb-block[data-grow] {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.hb-block[data-grow] > .hb-card {
+  flex: 1;
+}
+
+.hb-meter {
+  grid-template-rows: auto auto minmax(120px, 1fr) auto;
+}
+
+.hb-meter:has(.hb-callout) {
+  grid-template-rows: auto auto minmax(120px, 1fr) auto auto;
+}
+
+.hb-chart {
+  min-height: 120px;
+  overflow: hidden;
+}
+
+.hb-meter__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hb-meter__head .hb-tile {
+  margin-left: auto;
+  padding: 4px 16px;
+}
+
+.hb-reasons {
+  display: grid;
+  gap: 4px;
+}
+
+.hb-meter__head .stat-icon {
+  color: var(--ink);
+}
+
+.hb-reasons__list {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.hb-reasons__change {
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.hb-reasons__list [data-tone='bad'] .hb-reasons__change {
+  color: #b02a2a;
+}
+
+.hb-reasons__list [data-tone='good'] .hb-reasons__change {
+  color: #1f7a4b;
+}
+
+.chart__plot {
+  display: block;
+}
+
+.chart__zone[data-zone='safe'] {
+  fill: rgb(79 209 139 / 0.12);
+}
+
+.chart__zone[data-zone='warning'] {
+  fill: rgb(255 169 77 / 0.18);
+}
+
+.chart__zone[data-zone='danger'] {
+  fill: rgb(255 107 107 / 0.18);
+}
+
+.chart__line {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chart__tick {
+  fill: var(--ink-soft);
+  font-size: 12px;
+  text-anchor: end;
+}
+
+.chart__limit {
+  stroke: #c0392b;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 4;
+}
+
+.chart__limit-label {
+  fill: #c0392b;
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: end;
+}
+
+.chart__decision circle {
+  fill: var(--ink);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+
+.chart__decision text,
+.chart__hazard text {
+  fill: var(--paper);
+  font-size: 10px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.chart__hazard circle {
+  fill: #b9500a;
+}
+
+/* How to read the charts. */
+.hb-key__list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-key__list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hb-key__swatch {
+  flex: none;
+  width: 24px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgb(79 209 139 / 0.35);
+}
+
+.hb-key__swatch[data-zone='warning'] {
+  background: rgb(255 169 77 / 0.45);
+}
+
+.hb-key__swatch[data-zone='danger'] {
+  background: rgb(255 107 107 / 0.45);
+}
+
+.hb-key__dot {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hb-key__dot[data-luck] {
+  background: #b9500a;
+}
+
+/* ---------- Better choices, real life ---------- */
+.hb-great__list,
+.hb-points,
+.hb-studies {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 24px;
+}
+
+/* ---------- Summary ---------- */
+.hb-sum-ending {
+  display: grid;
+  gap: 8px;
+}
+
+.hb-ending {
+  margin: 0;
+  color: #b9500a;
+  font-family: var(--font-display);
+  font-size: calc(var(--hb-title) * 1.15);
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+.hb-ending[data-good] {
+  color: #1f7a4b;
+}
+
+.dose-split {
+  display: flex;
+  height: 24px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgb(29 36 51 / 0.08);
+}
+
+.dose-split__part {
+  flex-basis: 0;
+  background: var(--part);
+}
+
+.dose-split__part + .dose-split__part {
+  border-left: 2px solid var(--paper);
+}
+
+[data-part='choices'] {
+  --part: #1f5fa8;
+}
+
+[data-part='hazards'] {
+  --part: #b9500a;
+}
+
+[data-part='background'] {
+  --part: #8a93a6;
+}
+
+.dose-split__key {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dose-split__key li::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 8px;
+  border-radius: 4px;
+  background: var(--part);
+  vertical-align: -1px;
+}
+
+.summary__crew .line {
+  border-color: var(--paper-edge);
+  background: rgb(29 36 51 / 0.05);
+  color: var(--ink);
+}
+
+.summary__crew .line__role {
+  color: var(--ink-soft);
+}
+
+.handbook__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--hb-gap);
+}
+
+/* ---------- Cover ---------- */
+.cover {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hb-gap);
+}
+
+.cover__title {
+  color: #b9500a;
+  font-style: italic;
+}
+
+.cover__title[data-good] {
+  color: #1f7a4b;
+}
+
+.cover__picture {
+  display: block;
+  width: 100%;
+  max-height: 38vh;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+}
+
+.cover__contents {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hb-contents-link {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.hb-contents-link:hover {
+  text-decoration: underline;
+}
+
+.hb-start {
+  align-self: start;
+}
+
+/* "Start here" wears the Summary bookmark's colour. */
+.page .hb-start {
+  border-color: transparent;
+  background: var(--tab-summary);
+  color: #10141e;
+}
+
+.hb-help {
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid rgb(29 36 51 / 0.25);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: var(--hb-label);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hb-help__mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 16px;
+}
+
+/* ---------- Bookmark tabs ---------- */
+.handbook__tabs {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  display: grid;
+  gap: 8px;
+  width: 64px;
+}
+
+.handbook__tabs .book-tab {
+  --tab: var(--tab-meters);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 64px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 0 12px 12px 0;
+  background: color-mix(in srgb, var(--tab) 70%, #1d2433);
+  color: #10141e;
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: transform 120ms var(--ease-out);
+}
+
+.handbook__tabs .book-tab .stat-icon {
+  color: #10141e;
+}
+
+.book-tab[data-active],
+.book-tab:hover {
+  background: var(--tab);
+  transform: translateX(6px);
+}
+
+.book-tab:focus-visible {
+  outline: 3px solid var(--color-text);
+}
+
+.book-tab__key {
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgb(0 0 0 / 0.15);
+}
+
+/* ---------- The guide ---------- */
+.hb-guide {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  background: rgb(5 7 13 / 0.55);
+}
+
+.hb-guide__card {
+  display: grid;
+  gap: var(--hb-gap);
+  width: min(560px, 80%);
+  padding: 32px;
+  border-radius: 16px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 24px 64px rgb(0 0 0 / 0.5);
+}
+
+.hb-guide__steps {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 24px;
+  color: var(--ink-soft);
+}
+
+.hb-guide__steps [data-current] {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hb-guide__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.hb-guide__buttons .button {
+  color: var(--ink);
+  border-color: rgb(29 36 51 / 0.25);
+  background: rgb(29 36 51 / 0.06);
+}
+
+.hb-guide__buttons .button--primary {
+  color: #04121c;
+  background: var(--color-accent, #5cc8ff);
+}
+
+.hb-guide__buttons .keycap {
+  margin-left: 8px;
+}
+
+/* An arrow at the part the step means: the tabs, or the Summary tab. */
+.hb-guide__arrow {
+  position: absolute;
+  right: 72px;
+  color: #ffd166;
+  font-size: 48px;
+  font-weight: 800;
+  animation: hb-point 900ms ease-in-out infinite alternate;
+}
+
+.hb-guide__arrow--tabs {
+  top: 160px;
+}
+
+.hb-guide__arrow--summary {
+  top: 360px;
+}
+
+@keyframes hb-point {
+  from {
+    transform: translateX(-8px);
+  }
+  to {
+    transform: translateX(4px);
+  }
+}
+
+.handbook__tabs[data-guide] {
+  z-index: 6;
+}
+
+.handbook:has(.hb-guide[data-points='tabs']) .handbook__tabs .book-tab {
+  outline: 3px solid #ffd166;
+}
+
+.handbook:has(.hb-guide[data-points='summary']) .book-tab[data-section='summary'] {
+  outline: 3px solid #ffd166;
+  transform: translateX(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .handbook__spread[data-turn] .page,
+  .hb-guide__arrow,
+  .hb-block[data-flash] > * {
+    animation: none;
+  }
+
+  .book-tab {
+    transition: none;
+  }
+}
+
+:root[data-motion='reduced'] .handbook__spread[data-turn] .page,
+:root[data-motion='reduced'] .hb-guide__arrow,
+:root[data-motion='reduced'] .hb-block[data-flash] > * {
+  animation: none;
+}
+
+/* Named in honour of: a crew member and the two pioneers behind their name. */
+.hb-honour__body {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: var(--hb-gap);
+  align-items: start;
+}
+
+.hb-honour__list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 16px;
+}
+
+.hb-honour__list .hb-source {
+  display: inline;
+  white-space: normal;
+}

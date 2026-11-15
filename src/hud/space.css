@@ -1,0 +1,260 @@
+/* Launch and landing cinematics: letterbox bars, the readout, captions, the big title and Skip; and the microgravity card. */
+.sequence {
+  --bar: clamp(36px, 7vh, 72px);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Thin letterbox bars on outside shots; they slide in and out at each cut. */
+.sequence__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--bar);
+  background: #000;
+  transform: scaleY(0);
+  transition: transform 260ms var(--ease-out, ease-out);
+}
+
+.sequence__bar--top {
+  top: 0;
+  transform-origin: top;
+}
+
+.sequence__bar--bottom {
+  bottom: 0;
+  transform-origin: bottom;
+}
+
+.sequence[data-outside='true'] .sequence__bar {
+  transform: scaleY(1);
+}
+
+.cine-readout {
+  position: absolute;
+  top: calc(var(--space-4) + var(--bar) * 0.25);
+  left: max(var(--space-4), env(safe-area-inset-left));
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 200px;
+  max-width: calc(100vw - 2 * var(--space-4));
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  /* scale, not transform: the entrance animation owns transform. */
+  transform-origin: top left;
+}
+
+/* Small windows (or browser zoom): shrink toward the corner, like the HUD, so it is always fully on screen. */
+@media (max-width: 1280px), (max-height: 720px) {
+  .cine-readout {
+    scale: 0.88;
+  }
+}
+
+@media (max-width: 1024px), (max-height: 600px) {
+  .cine-readout {
+    scale: 0.76;
+  }
+}
+
+.cine-readout__title {
+  margin: 0 0 var(--space-1);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.cine-readout__lines {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px var(--space-3);
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.cine-readout__lines dt {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  align-self: center;
+}
+
+.cine-readout__lines dd {
+  margin: 0;
+  text-align: right;
+}
+
+.cine-readout__note {
+  max-width: 240px;
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+}
+
+.sequence__label {
+  position: absolute;
+  top: calc(var(--space-4) + var(--bar) * 0.25);
+  right: var(--space-4);
+  max-width: calc(100vw - 2 * var(--space-4));
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* A jump in time: to black and back, with one line of text. */
+.sequence__fade {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #000;
+  animation: sequence-fade 2.4s linear both;
+}
+
+.sequence__fade-text {
+  margin: 0;
+  color: #fff;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+@keyframes sequence-fade {
+  0% {
+    opacity: 0;
+  }
+  25%,
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* LIFTOFF, TOUCHDOWN: big and brief. */
+.sequence__banner {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  translate: -50% -50%;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 0.55);
+  animation: sequence-banner 2.6s var(--ease-out, ease-out) both;
+}
+
+@keyframes sequence-banner {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  12% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sequence__bar {
+    transition: none;
+  }
+  .sequence__banner {
+    animation: none;
+  }
+  .sequence__fade {
+    animation: none;
+  }
+}
+
+.sequence__skip {
+  position: absolute;
+  right: var(--space-4);
+  bottom: calc(var(--bar) + var(--space-4));
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  pointer-events: auto;
+}
+
+.sequence__skip-hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.float-card {
+  position: absolute;
+  left: 50%;
+  bottom: 168px;
+  translate: -50% 0;
+  width: min(420px, calc(100vw - 32px));
+  padding: var(--space-5);
+  pointer-events: auto;
+}
+
+.float-card__eyebrow {
+  margin: 0 0 var(--space-1);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.float-card__title {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-lg);
+  font-weight: 650;
+}
+
+.float-card__body {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.float-card__keys {
+  display: flex;
+  gap: var(--space-5);
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.float-card__keys > span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.float-card__close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+}
+
+/* The "Microgravity" chip beside the room name. */
+.play__chip {
+  margin: 0 0 0 var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  color: #9fd4ff;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

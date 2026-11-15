@@ -1,0 +1,256 @@
+/*
+ * A Transmission: big, in the upper part of the screen, clear of the
+ * crosshair (the middle) and the interact prompt (below it). About 40% of
+ * the screen wide, a 220 px portrait, 22-26 px words.
+ */
+.transmission {
+  --edge: rgb(255 255 255 / 0.18);
+  --glow: transparent;
+  position: fixed;
+  top: clamp(56px, 7.5vh, 96px);
+  left: 50%;
+  z-index: 40;
+  display: grid;
+  gap: 12px;
+  width: clamp(480px, 40vw, 720px);
+  max-width: calc(100vw - 32px);
+  padding: 16px 24px 16px 16px;
+  border: 2px solid var(--edge);
+  border-radius: 24px;
+  background: rgb(12 17 28 / 0.88);
+  box-shadow:
+    0 24px 60px rgb(0 0 0 / 0.5),
+    0 0 32px var(--glow);
+  color: var(--color-text);
+  pointer-events: none;
+  transform: translateX(-50%);
+  animation: transmission-in 360ms var(--ease-out) both;
+}
+
+@keyframes transmission-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -24px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.transmission__body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.transmission__portrait {
+  display: block;
+  width: clamp(170px, 16vw, 260px);
+  aspect-ratio: 1;
+}
+
+.transmission__portrait .portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.transmission__words {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.transmission__who {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  margin: 0;
+}
+
+.transmission__name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.transmission__role {
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.transmission__text {
+  margin: 0;
+  font-size: clamp(22px, 1.75vw, 26px);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Words appear one by one as they're said; the rest keep their place. */
+.transmission__word {
+  opacity: 0;
+  transition: opacity 120ms ease-out;
+}
+
+.transmission__word[data-shown] {
+  opacity: 1;
+}
+
+.transmission__receiving {
+  margin: 0;
+  font-size: clamp(22px, 1.75vw, 26px);
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.transmission__delay {
+  display: inline-block;
+  margin-left: 8px;
+  white-space: nowrap;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgb(92 200 255 / 0.18);
+  color: #9fdcff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.transmission__hint {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+/* ---------- Radio: Houston ---------- */
+.transmission[data-style='radio'] {
+  --edge: rgb(92 200 255 / 0.55);
+}
+
+.signal {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+
+.signal__bar {
+  width: 4px;
+  border-radius: 2px;
+  background: #5cc8ff;
+  animation: signal 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes signal {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Hologram: the rover, crew elsewhere ---------- */
+.transmission[data-style='hologram'] {
+  --edge: rgb(92 220 255 / 0.7);
+  --glow: rgb(92 220 255 / 0.35);
+  background:
+    repeating-linear-gradient(180deg, rgb(120 230 255 / 0.07) 0 2px, transparent 2px 5px),
+    linear-gradient(180deg, rgb(16 70 110 / 0.85), rgb(8 30 52 / 0.88));
+  color: #dff6ff;
+  animation:
+    transmission-in 360ms var(--ease-out) both,
+    hologram-flicker 520ms steps(1, end) both;
+}
+
+.transmission[data-style='hologram'] .transmission__portrait {
+  filter: drop-shadow(0 0 10px rgb(92 220 255 / 0.6)) saturate(0.7) hue-rotate(-10deg);
+  opacity: 0.92;
+}
+
+@keyframes hologram-flicker {
+  0% {
+    opacity: 0.2;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  40%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ---------- Alert: storm and meteoroid ---------- */
+.transmission[data-style='alert'] {
+  --edge: #ff4a3d;
+  --glow: rgb(255 60 50 / 0.55);
+  border-width: 4px;
+  background: rgb(40 8 10 / 0.92);
+  animation:
+    transmission-in 360ms var(--ease-out) both,
+    alert-pulse 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes alert-pulse {
+  from {
+    box-shadow:
+      0 24px 60px rgb(0 0 0 / 0.5),
+      0 0 12px rgb(255 60 50 / 0.3);
+    border-color: #b8261d;
+  }
+  to {
+    box-shadow:
+      0 24px 60px rgb(0 0 0 / 0.5),
+      0 0 48px rgb(255 60 50 / 0.85);
+    border-color: #ff6b5f;
+  }
+}
+
+.transmission__headline {
+  margin: 0;
+  color: #ff6b5f;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 2.6vw, 44px);
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transmission,
+  .transmission[data-style] {
+    animation: none;
+  }
+
+  .signal__bar {
+    animation: none;
+  }
+
+  .transmission__word {
+    transition: none;
+  }
+}
+
+:root[data-motion='reduced'] .transmission,
+:root[data-motion='reduced'] .transmission[data-style],
+:root[data-motion='reduced'] .signal__bar {
+  animation: none;
+}
+
+@media (max-width: 760px) {
+  .transmission__body {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}

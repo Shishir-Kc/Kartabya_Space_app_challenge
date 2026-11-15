@@ -1,0 +1,1107 @@
+{
+  "alert-meteoroid": {
+    "text": "Something just hit a solar panel. Let’s look at the damage.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.32
+  },
+  "alert-storm": {
+    "text": "Solar storm! The radiation is coming. Decide fast.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.71
+  },
+  "beat-arrival-commander": {
+    "text": "Welcome to the Moon, {name}. The airlock is this way.",
+    "spoken": "Welcome to the Moon, astronaut. The airlock is this way.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3.47
+  },
+  "beat-night-commander-1": {
+    "text": "On my first mission, I took a risk to save time.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.63
+  },
+  "beat-night-commander-2": {
+    "text": "We got home. But I learned: plan for the long night.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 4.28
+  },
+  "bite-few-supplies": {
+    "text": "We’re down to our last meals. More supplies would have helped.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.21
+  },
+  "bite-no-antenna": {
+    "text": "Houston couldn’t reach us.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 2.19
+  },
+  "bite-no-rover-patch": {
+    "text": "On foot, even a short trip adds up.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.24
+  },
+  "bite-no-rover-walk": {
+    "text": "Without the rover, it’s a long walk out there.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.24
+  },
+  "bite-no-shielding": {
+    "text": "We left the shielding on Earth. This is going to hurt.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.63
+  },
+  "bite-no-shielding-transit": {
+    "text": "Without the shielding we left behind, this cabin is thin.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.79
+  },
+  "bite-no-spares": {
+    "text": "That would be an easy fix with a spare part.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.32
+  },
+  "bite-pushed-on": {
+    "text": "Pushing on wore our botanist out. She has to rest now.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.21
+  },
+  "bite-rationing": {
+    "text": "Rationing water is wearing us down. We should have brought ice back.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.6
+  },
+  "bite-rover-tow": {
+    "text": "We’ve lost the rover out there. From now on we walk.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 4.44
+  },
+  "bite-skipped-planting": {
+    "text": "We never planted. There’s no fresh food for the night.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 4.21
+  },
+  "bite-solar-night": {
+    "text": "Solar panels make nothing in the dark. A reactor would have kept us going.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 5.07
+  },
+  "bite-transit-dose": {
+    "text": "We took a dose on the way here. We can’t take much more.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.97
+  },
+  "bite-worked-in-storm": {
+    "text": "My head hurts. I should have sheltered.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.55
+  },
+  "c01-line-1": {
+    "text": "Solar panels are light. That leaves more room for cargo!",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "cheerful",
+    "seconds": 3.71
+  },
+  "c01-line-2": {
+    "text": "Houston here. Moon nights last two weeks. Solar panels go dark.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "concerned",
+    "seconds": 4.83
+  },
+  "c01-reminder": {
+    "text": "Not so fast! Choose your power source in the briefing room first.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.36
+  },
+  "c02-line-1": {
+    "text": "Houston here. Pack spares. Things always break, and we can’t send parts quickly.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "concerned",
+    "seconds": 5.8
+  },
+  "c02-line-2": {
+    "text": "Every block of spares is a block less shielding.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "thoughtful",
+    "seconds": 3.55
+  },
+  "c02-reminder": {
+    "text": "Hold on, astronaut. Pack the cargo in the hangar first.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.71
+  },
+  "c03-a-locked": {
+    "text": "We’d fix this in minutes if we’d packed spares.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.24
+  },
+  "c03-line-1": {
+    "text": "Swap in a spare part and fix it properly.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.08
+  },
+  "c03-line-2": {
+    "text": "Switch to the backup. It’s quick, but it uses power.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "neutral",
+    "seconds": 3.87
+  },
+  "c03-reminder": {
+    "text": "The air scrubber needs fixing before we land.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.93
+  },
+  "c04-houston": {
+    "text": "Houston here. A flare just went off. Get to the shelter soon.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.87
+  },
+  "c04-line-1": {
+    "text": "Everyone into the shelter. The repair can wait.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 2.85
+  },
+  "c04-line-1b": {
+    "text": "Another flare. Same drill: into the shelter.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.16
+  },
+  "c04-line-1c": {
+    "text": "A third storm. Nobody takes chances this time.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.47
+  },
+  "c04-line-2": {
+    "text": "If we stop now, we’ll have to start the repair again.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.63
+  },
+  "c04-line-2b": {
+    "text": "Again? We’ll never finish this repair at this rate.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.71
+  },
+  "c04-line-2c": {
+    "text": "We’re so close. Can two of us keep going?",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.63
+  },
+  "c04-reminder": {
+    "text": "Houston here. No storms on our screens right now.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.24
+  },
+  "c05-a-ruled-out": {
+    "text": "The ridge is too far from the ice. Our outpost is waiting on the slope between. Let’s land there.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 5.96
+  },
+  "c05-b-ruled-out": {
+    "text": "The crater rim is in shadow too often for our panels. Our outpost is on the slope between. We land there.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 6.61
+  },
+  "c05-line-1": {
+    "text": "Stay close to the ice. We can turn it into water!",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 3.71
+  },
+  "c05-line-2": {
+    "text": "We need sunlight too. Our panels run on it.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "neutral",
+    "seconds": 2.93
+  },
+  "c05-reminder": {
+    "text": "We can’t land until we pick a landing site.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3
+  },
+  "c06-line-1": {
+    "text": "Life support first. Always.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "neutral",
+    "seconds": 2.51
+  },
+  "c06-line-2": {
+    "text": "Without the greenhouse, we’ll run out of food.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.24
+  },
+  "c06-reminder": {
+    "text": "Wake the base in the power bay first.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.77
+  },
+  "c07-line-1": {
+    "text": "Plant everything! We’ll be glad of fresh food later.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 3.63
+  },
+  "c07-line-2": {
+    "text": "Water is life support. Save it until we know we have enough.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.21
+  },
+  "c07-reminder": {
+    "text": "We haven’t planted the greenhouse yet.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.51
+  },
+  "c08-briefing": {
+    "text": "We need water. There’s ice in the crater to the east.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.71
+  },
+  "c08-line-1": {
+    "text": "Dig out as much as we can. Ice means water and air!",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 4.36
+  },
+  "c08-line-2": {
+    "text": "Every minute out here adds radiation. Take a little and go.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.28
+  },
+  "c08-reminder": {
+    "text": "Not yet. Wait for my briefing at command.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.93
+  },
+  "c09-line-1": {
+    "text": "Everyone needs a full day of rest. Tired people make mistakes.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.44
+  },
+  "c09-line-2": {
+    "text": "We still have to finish the roof before the next storm.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.4
+  },
+  "c09-reminder": {
+    "text": "The crew needs a decision about rest first.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.93
+  },
+  "c10-houston": {
+    "text": "Houston here. We’re seeing a big flare on the Sun. Particles could reach you soon.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 4.6
+  },
+  "c10-line-1": {
+    "text": "Everyone to the shelter, now!",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 2.12
+  },
+  "c10-line-1b": {
+    "text": "Another storm! Everyone to the shelter.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 2.59
+  },
+  "c10-line-1c": {
+    "text": "Third storm. Our dose keeps adding up. Shelter now.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.79
+  },
+  "c10-line-2": {
+    "text": "The roof is almost finished. A few more minutes and we’re done!",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 3.97
+  },
+  "c10-line-2b": {
+    "text": "We lost a whole day last time. Can we keep working?",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.71
+  },
+  "c10-line-2c": {
+    "text": "The Sun won’t stop. We still have a base to run.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.55
+  },
+  "c11-a-locked": {
+    "text": "That would be an easy fix with a spare part.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.16
+  },
+  "c11-line-1": {
+    "text": "Let’s walk out and swap the part. We need full power for the night.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.79
+  },
+  "c11-line-1b": {
+    "text": "Another hit! Let’s swap the part before power drops more.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 3.55
+  },
+  "c11-line-1c": {
+    "text": "A third panel down. We need full power for the night.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.87
+  },
+  "c11-line-2": {
+    "text": "A moonwalk uses air and adds radiation. Patch it from here.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.28
+  },
+  "c11-line-2b": {
+    "text": "Every walk out adds radiation. A patch will do.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.05
+  },
+  "c11-line-2c": {
+    "text": "We’ve been out so much already. Patch it from here.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.4
+  },
+  "c11-reminder": {
+    "text": "The solar panels are working fine for now.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.16
+  },
+  "c12-houston": {
+    "text": "Houston here. It’s going to be a long, cold night. Save what you can.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 5.25
+  },
+  "c12-line-1": {
+    "text": "Turn almost everything off and sleep through it.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.32
+  },
+  "c12-line-2": {
+    "text": "Keep everything running. The crew has to stay warm and well.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.13
+  },
+  "c12-reminder": {
+    "text": "Not yet. We have work to do before nightfall.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.16
+  },
+  "card-lc-guide": {
+    "text": "Lost? Press G any time for your guidebook: space words, where your tasks are, and every key.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 7.24
+  },
+  "card-lc-move": {
+    "text": "Welcome, mission engineer! Walk with W, A, S, D and look around with the mouse. Or click on the floor, and you’ll walk there.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "friendly",
+    "seconds": 8.12
+  },
+  "dose-moderate": {
+    "text": "Radiation dose means how much radiation our bodies have soaked up. Ours is getting high. No more risks.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 6.69
+  },
+  "end-commander-early": {
+    "text": "Coming home early is not failing. We all get home, and next time we plan better.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 5.88
+  },
+  "end-commander-good": {
+    "text": "You kept a cool head and a safety margin. I’d fly with you again.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 4.36
+  },
+  "end-comms-early": {
+    "text": "Houston here. We’re bringing you home. You did everything you could.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 5.49
+  },
+  "end-comms-good": {
+    "text": "Houston here. Great work up there. Everyone down here is cheering.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 4.36
+  },
+  "end-safety-early": {
+    "text": "Sending everyone home was the right call. The crew always comes first.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.83
+  },
+  "end-safety-good": {
+    "text": "Nobody got hurt. That’s the best report a safety officer can write.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 4.52
+  },
+  "end-science-early": {
+    "text": "We learned a lot, even if it was hard. That’s what science is for.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.83
+  },
+  "end-science-good": {
+    "text": "We grew food on the Moon! I can’t wait to tell everyone back home.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 4.91
+  },
+  "end-trainer-early": {
+    "text": "Every trade-off you made taught you something. Let’s train again.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.05
+  },
+  "end-trainer-good": {
+    "text": "Your choices back on Earth paid off on the Moon. That’s what training is for.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 4.83
+  },
+  "p1-commander-01": {
+    "text": "He says that every year. Then he watches every launch with his fingers crossed.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "amused",
+    "seconds": 5.41
+  },
+  "p1-commander-02": {
+    "text": "And once we decide, we stick together.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.85
+  },
+  "p1-comms-01": {
+    "text": "There’s our mission engineer! Good luck tonight, astronaut. Today you leave Earth and head out into space.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "warm",
+    "seconds": 6.69
+  },
+  "p1-comms-02": {
+    "text": "And I’ll be right here the whole way. I’ll stay connected to your team by radio. If anything goes wrong, any problem at all, I’ll be the first one to help.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "reassuring",
+    "seconds": 8.67
+  },
+  "p1-comms-03": {
+    "text": "So tell me. Have you checked your cargo for the trip?",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "curious",
+    "seconds": 3.47
+  },
+  "p1-comms-04a": {
+    "text": "Then let’s fix that. Every kilogram on that rocket matters, so head to the cargo hangar and pack it yourself.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "kind",
+    "seconds": 6.69
+  },
+  "p1-comms-04b": {
+    "text": "That’s the spirit. Good astronauts always check twice. The cargo hangar is next door.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "pleased",
+    "seconds": 5.8
+  },
+  "p1-comms-05": {
+    "text": "I’ll call you on the radio when you’re done.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "friendly",
+    "seconds": 2.04
+  },
+  "p1-comms-06": {
+    "text": "Houston here. I see your cargo is loaded. Nice work, mission engineer.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 4.75
+  },
+  "p1-comms-07": {
+    "text": "The rocket is fuelled and ready. Head to the launch pad and take the elevator up to the hatch. Your crew is waiting.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "upbeat",
+    "seconds": 6.27
+  },
+  "p1-safety-01": {
+    "text": "Which is why we listen to each other before we decide.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.24
+  },
+  "p1-science-01": {
+    "text": "Finally! It’s the day we’ve been dreaming about. We’ll be on the Moon soon!",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 5.25
+  },
+  "p1-science-02": {
+    "text": "Go on. I’ll save you a seat on the rocket.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "teasing",
+    "seconds": 3.24
+  },
+  "p1-science-03": {
+    "text": "Thought you’d end up here. The rocket can only carry so much, so we can’t take everything. You pick.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "cheerful",
+    "seconds": 6.27
+  },
+  "p1-science-04": {
+    "text": "It’s full! Put something back if you want that one.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "playful",
+    "seconds": 3.32
+  },
+  "p1-science-05": {
+    "text": "Packed and sealed. No changing your mind now!",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "satisfied",
+    "seconds": 3.79
+  },
+  "p1-trainer-01": {
+    "text": "Good evening, astronauts! Tonight I’m going to give you a short briefing about your mission. Follow me to the briefing room.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "warm",
+    "seconds": 6.92
+  },
+  "p1-trainer-02": {
+    "text": "For those who don’t know me yet: I’m your trainer. For months I’ve taught you how to fly, how to fix things, and how to stay calm when things go wrong.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "friendly",
+    "seconds": 8.59
+  },
+  "p1-trainer-03": {
+    "text": "My job ends at the launch pad. After that, your crew and Houston will look after you.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "friendly",
+    "seconds": 5.15
+  },
+  "p1-trainer-04": {
+    "text": "Guilty. Here we are.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "laughs",
+    "seconds": 3
+  },
+  "p1-trainer-05": {
+    "text": "Take a seat. I’ll start the mission briefing in a moment.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "warm",
+    "seconds": 3.4
+  },
+  "p1-trainer-06": {
+    "text": "Tonight, your rocket carries the four of you from Earth to the Moon.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.6
+  },
+  "p1-trainer-07": {
+    "text": "You’ll spend a few days in space on the way.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 2.69
+  },
+  "p1-trainer-08": {
+    "text": "Then you land near the Moon’s south pole and wake up our outpost. It has been asleep, waiting for you.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 6.27
+  },
+  "p1-trainer-09": {
+    "text": "Up there, you’ll have to keep the power on, the air clean, the plants growing, and the radio talking to Earth.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 6.84
+  },
+  "p1-trainer-10": {
+    "text": "And you’ll have to make hard choices. Something that helps you today might cost you tomorrow. There’s rarely one perfect answer.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "serious",
+    "seconds": 8.2
+  },
+  "p1-trainer-11": {
+    "text": "Your first real decision. The outpost needs a power source, and our mission engineer gets to choose it. Listen to your crew first.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "warm",
+    "seconds": 8.44
+  },
+  "p1-trainer-12": {
+    "text": "Good. Remember that choice. You’ll find out on the Moon how it works out.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "pleased",
+    "seconds": 4.68
+  },
+  "p1-trainer-13": {
+    "text": "That’s all for the briefing. Before you do anything else, why doesn’t our mission engineer pay one last visit to the communications officer? He’ll be your voice from Earth.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "warm",
+    "seconds": 9.25
+  },
+  "p1-trainer-14": {
+    "text": "This is where I leave you. You’ve trained hard for this. Trust your crew, think before you choose, and bring everyone home.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 7.81
+  },
+  "p1-trainer-15": {
+    "text": "Now go. The Moon is waiting.",
+    "voice": "uFIXVu9mmnDZ7dTKCBTX",
+    "model": "eleven_v4",
+    "direction": "smiling",
+    "seconds": 2.93
+  },
+  "p2-commander-01": {
+    "text": "Welcome to microgravity, {name}! Push off gently. Nothing weighs anything up here.",
+    "spoken": "Welcome to microgravity, astronaut! Push off gently. Nothing weighs anything up here.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 5.64
+  },
+  "p2-commander-02": {
+    "text": "Our safety officer is in life support, at the back. Go and help.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.13
+  },
+  "p2-commander-03": {
+    "text": "Good work. Come up to the cockpit. We need to pick where to land.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.71
+  },
+  "p2-commander-04": {
+    "text": "{name}, help me pick where we land. Our outpost is already waiting down there.",
+    "spoken": "Astronaut, help me pick where we land. Our outpost is already waiting down there.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 4.83
+  },
+  "p2-commander-05": {
+    "text": "Strap in. We’re going down.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 2.59
+  },
+  "p2-safety-01": {
+    "text": "Hey {name}, the air scrubber is failing. Can you help me decide?",
+    "spoken": "Hey astronaut, the air scrubber is failing. Can you help me decide?",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.28
+  },
+  "p2-safety-02": {
+    "text": "That did it. The air is clean again. Thank you!",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3.97
+  },
+  "p2-safety-03": {
+    "text": "We’ll manage. But stuffy air will make us all tired.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.13
+  },
+  "p2-safety-04": {
+    "text": "Those of us outside took a dose. Let’s be more careful.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.87
+  },
+  "p2-safety-05": {
+    "text": "The repair is done, but we all took radiation. It adds up.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 4.83
+  },
+  "p2-science-01": {
+    "text": "That was close. I’m glad we all fit in there.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.4
+  },
+  "p3-commander-01": {
+    "text": "Welcome home, {name}. First job: wake the base. The power bay is this way.",
+    "spoken": "Welcome home, astronaut. First job: wake the base. The power bay is this way.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 5.64
+  },
+  "p3-commander-02": {
+    "text": "The base is asleep. You share out our power, {name}. Choose well.",
+    "spoken": "The base is asleep. You share out our power, astronaut. Choose well.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 5.07
+  },
+  "p3-commander-03": {
+    "text": "Lights on, air flowing. Nice work.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3.24
+  },
+  "p3-commander-04": {
+    "text": "Head back to base, {name}. The long night is coming.",
+    "spoken": "Head back to base, astronaut. The long night is coming.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.63
+  },
+  "p3-commander-05": {
+    "text": "A panel has been hit, {name}. How should we fix it?",
+    "spoken": "A panel has been hit, astronaut. How should we fix it?",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "urgent",
+    "seconds": 2.93
+  },
+  "p3-commander-06": {
+    "text": "Good as new. We’ll need that power tonight.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3
+  },
+  "p3-commander-07": {
+    "text": "It will hold. Half power is better than none.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.24
+  },
+  "p3-commander-08": {
+    "text": "Less power, then. We’ll have to be careful tonight.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.63
+  },
+  "p3-commander-09": {
+    "text": "The long night is coming, {name}. How do we get through it?",
+    "spoken": "The long night is coming, astronaut. How do we get through it?",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.97
+  },
+  "p3-commander-10": {
+    "text": "Another day done. Tomorrow we keep going.",
+    "voice": "T2sZgOl8ol4kf4u6yM2z",
+    "model": "eleven_v4",
+    "direction": "proud",
+    "seconds": 3.32
+  },
+  "p3-comms-01": {
+    "text": "Houston here. Good night, outpost. We’re watching over you.",
+    "voice": "7EzWGsX10sAS4c9m9cPf",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.87
+  },
+  "p3-safety-01": {
+    "text": "Can you come to crew quarters? The crew needs you.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.16
+  },
+  "p3-safety-02": {
+    "text": "The crew is worn out, {name}. What should we do?",
+    "spoken": "The crew is worn out, astronaut. What should we do?",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.55
+  },
+  "p3-safety-03": {
+    "text": "Thank you. Rested people make fewer mistakes.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.63
+  },
+  "p3-safety-04": {
+    "text": "We’ll push on. Watch for anyone who looks too tired.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.87
+  },
+  "p3-safety-05": {
+    "text": "That storm hit us hard. Next time, we all shelter.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 4.21
+  },
+  "p3-safety-06": {
+    "text": "Everyone is tucked in. Get some sleep, {name}.",
+    "spoken": "Everyone is tucked in. Get some sleep, astronaut.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.32
+  },
+  "p3-science-01": {
+    "text": "{name}! Come to the greenhouse. I need your help!",
+    "spoken": "Astronaut! Come to the greenhouse. I need your help!",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 3.47
+  },
+  "p3-science-02": {
+    "text": "{name}! The greenhouse is ready, but water is tight. What should we plant?",
+    "spoken": "Astronaut! The greenhouse is ready, but water is tight. What should we plant?",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 5.56
+  },
+  "p3-science-03": {
+    "text": "Seeds in! We’ll have fresh food before long.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3.4
+  },
+  "p3-science-04": {
+    "text": "No seeds this time. I hope our food lasts.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.97
+  },
+  "p3-science-05": {
+    "text": "Look at all that ice! How much should we take?",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "excited",
+    "seconds": 3.32
+  },
+  "p3-science-06": {
+    "text": "Water from the Moon! Bring it home safely.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3
+  },
+  "p3-science-07": {
+    "text": "No ice for now. We’ll have to save water.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "sad",
+    "seconds": 3.55
+  },
+  "p3-science-08": {
+    "text": "Safe in here. Thanks for getting us all inside.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "calm",
+    "seconds": 3.55
+  },
+  "p3-science-09": {
+    "text": "Long day. The plants look happy, though.",
+    "voice": "BIvP0GN1cAtSRTxNHnWS",
+    "model": "eleven_v4",
+    "direction": "happy",
+    "seconds": 3.16
+  },
+  "rover-low-battery": {
+    "text": "You have just enough charge to get home. Turn back now.",
+    "voice": "zs057lc0shdaAFXkm2Fm",
+    "model": "eleven_v4",
+    "direction": "worried",
+    "seconds": 3.79
+  }
+}

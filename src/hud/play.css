@@ -1,0 +1,101 @@
+/* Overlay while walking. It never catches clicks: they go to the canvas. */
+.play {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Rows that centre their content with flex, so nothing lands on a half pixel. */
+.play__top {
+  position: absolute;
+  top: var(--space-4);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.play__room {
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.play__center {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* A small crisp dot that grows into a ring when something can be used. */
+.play__crosshair {
+  grid-area: 1 / 1;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-text);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.55);
+  transition:
+    width 140ms var(--ease-out),
+    height 140ms var(--ease-out),
+    background-color 140ms var(--ease-out);
+}
+
+.play__crosshair[data-active='true'] {
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 2px solid var(--color-text);
+  box-shadow:
+    0 0 0 1px rgb(0 0 0 / 0.45),
+    inset 0 0 0 1px rgb(0 0 0 / 0.45);
+}
+
+.play__prompt-slot {
+  grid-area: 1 / 1;
+  display: flex;
+  justify-content: center;
+  margin-top: 104px;
+}
+
+.play__prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0;
+  padding: var(--space-2) var(--space-5) var(--space-2) var(--space-2);
+  font-size: var(--text-md);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.play__prompt--notice {
+  padding: var(--space-2) var(--space-5);
+  color: var(--color-text-muted);
+}
+
+.play__hint-row {
+  position: absolute;
+  left: var(--space-4);
+  right: var(--space-4);
+  bottom: 112px;
+  display: flex;
+  justify-content: center;
+}
+
+.play__hint {
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .play__crosshair {
+    transition: none;
+  }
+}

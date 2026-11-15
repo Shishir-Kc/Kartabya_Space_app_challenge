@@ -1,0 +1,63 @@
+.transition {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  background: #000;
+  pointer-events: none;
+}
+
+.transition[data-step='in'] {
+  animation: transition-fade-in 600ms ease forwards;
+}
+
+.transition[data-step='out'] {
+  animation: transition-fade-out 600ms ease forwards;
+}
+
+.transition__message {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.transition[data-step='hold'] .transition__message {
+  opacity: 1;
+}
+
+@keyframes transition-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes transition-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* A short dip to black (changing suits in the airlock). */
+.quick-fade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 380ms ease;
+}
+
+.quick-fade[data-on='true'] {
+  opacity: 1;
+  transition-duration: 180ms;
+}

@@ -1,0 +1,146 @@
+/* The guidebook (G): one paper page with bookmark tabs, in the handbook's style. */
+.guidebook-layer {
+  z-index: 60;
+}
+
+.guidebook {
+  width: min(1100px, 92vw);
+  height: min(820px, 90vh);
+  grid-template-rows: 1fr;
+}
+
+.guidebook__page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hb-gap);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow:
+    0 32px 80px rgb(0 0 0 / 0.55),
+    inset 0 0 0 1px var(--paper-edge);
+}
+
+.guidebook__scroll {
+  display: grid;
+  align-content: start;
+  gap: var(--hb-gap);
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.guidebook__keys {
+  margin-top: auto;
+}
+
+.guidebook__letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.guidebook__letter {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--paper-edge);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guidebook__letter:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.guidebook__word {
+  grid-template-columns: 64px 1fr;
+  align-items: start;
+  gap: var(--hb-gap);
+  scroll-margin-top: 8px;
+}
+
+.guidebook__word .hb-card-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.guidebook__table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--ink);
+  font-size: calc(var(--hb-body) * 0.85);
+}
+
+.guidebook__table th {
+  padding: 8px;
+  border-bottom: 2px solid var(--paper-edge);
+  color: var(--ink-soft);
+  font-size: var(--hb-label);
+  letter-spacing: 0.06em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.guidebook__table td {
+  padding: 8px;
+  border-bottom: 1px solid var(--paper-edge);
+  vertical-align: middle;
+}
+
+.guidebook__table tbody tr[data-status] {
+  cursor: pointer;
+}
+
+.guidebook__table tbody tr[data-status]:hover {
+  background: rgb(29 36 51 / 0.05);
+}
+
+.guidebook__table tr[data-status='done'] td {
+  color: var(--ink-soft);
+}
+
+.guidebook__who {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guidebook__unlock {
+  color: var(--ink-soft);
+  font-size: calc(var(--hb-body) * 0.75);
+}
+
+.guidebook__controls {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guidebook__controls li {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: var(--hb-gap);
+}
+
+.guidebook__caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.guidebook .keycap {
+  border-color: rgb(29 36 51 / 0.35);
+  background: rgb(29 36 51 / 0.08);
+  color: var(--ink);
+  box-shadow: 0 2px 0 rgb(29 36 51 / 0.25);
+}

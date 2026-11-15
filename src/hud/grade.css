@@ -1,0 +1,56 @@
+/*
+ * The colour grade (a CSS filter on the 3D canvas) and the vignette and tint
+ * (one overlay above it, under the HUD). Gentle on purpose.
+ */
+:root[data-grade='dusk'] canvas {
+  filter: saturate(1.06) contrast(1.04);
+}
+
+:root[data-grade='warm-indoor'] canvas {
+  filter: contrast(1.03);
+}
+
+:root[data-grade='cool'] canvas {
+  filter: saturate(0.94) contrast(1.05) brightness(1.02);
+}
+
+:root[data-grade='moon'] canvas {
+  filter: contrast(1.14) saturate(0.85);
+}
+
+:root[data-grade='outpost'] canvas {
+  filter: contrast(1.04) saturate(0.97);
+}
+
+.scene-grade {
+  --tint: transparent;
+  --edge: rgb(0 0 0 / 0.26);
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 75% 70% at 50% 50%, transparent 62%, var(--edge) 100%),
+    var(--tint);
+  mix-blend-mode: normal;
+}
+
+.scene-grade[data-grade='none'] {
+  display: none;
+}
+
+.scene-grade[data-grade='dusk'] {
+  --tint: rgb(255 150 80 / 0.07);
+}
+
+.scene-grade[data-grade='warm-indoor'] {
+  --tint: rgb(255 190 120 / 0.04);
+}
+
+.scene-grade[data-grade='cool'] {
+  --tint: rgb(150 190 255 / 0.05);
+}
+
+.scene-grade[data-grade='moon'] {
+  --edge: rgb(0 0 0 / 0.38);
+}

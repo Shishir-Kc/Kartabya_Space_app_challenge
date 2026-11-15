@@ -1,0 +1,122 @@
+/* The rover's dashboard. (The crew's hologram is a Transmission: src/hud/transmission.css.) */
+.rover-hud {
+  position: absolute;
+  left: var(--space-4);
+  bottom: 48px;
+  display: grid;
+  justify-items: start;
+  gap: var(--space-3);
+  width: min(440px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-5);
+  width: 100%;
+  padding: var(--space-3) var(--space-5);
+}
+
+.dashboard__speed {
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.dashboard__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.dashboard__unit,
+.dashboard__label,
+.dashboard__hint,
+.dashboard__keys {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.dashboard__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-1);
+}
+
+.dashboard__percent {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.dashboard__bar {
+  position: relative;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: rgb(255 255 255 / 0.12);
+}
+
+.dashboard__fill {
+  height: 100%;
+  border-radius: inherit;
+  background: #4fd18b;
+  transition: width 120ms linear;
+}
+
+.dashboard__battery[data-low='true'] .dashboard__fill {
+  background: #ffb547;
+}
+
+/* The home line: the charge needed to drive straight back. */
+.dashboard__home {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: #ffffff;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.5);
+}
+
+.dashboard__battery[data-low='true'] .dashboard__hint {
+  color: #ffb547;
+}
+
+.dashboard__status {
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.dashboard__lamp[data-on='true'] {
+  color: #ffe6a8;
+}
+
+.dashboard__boost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.dashboard__boost-bar {
+  display: inline-block;
+  height: 4px;
+  max-width: 40px;
+  border-radius: 2px;
+  background: var(--color-accent);
+}
+
+.dashboard__boost[data-on='true'] {
+  color: var(--color-accent);
+}
+
+.dashboard__keys {
+  grid-column: 1 / -1;
+  justify-self: end;
+  margin-top: calc(var(--space-2) * -1);
+}

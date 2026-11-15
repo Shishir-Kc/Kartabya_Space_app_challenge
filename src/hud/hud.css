@@ -1,0 +1,523 @@
+/* The HUD is a DOM layer over the canvas. It lets clicks through except on its own panels. */
+.hud {
+  position: absolute;
+  inset: 0;
+  padding: var(--space-4);
+  pointer-events: none;
+}
+
+.hud__left {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 272px;
+}
+
+/* ---------- Player chip ---------- */
+.player-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-1) var(--space-4) var(--space-1) var(--space-1);
+  max-width: 100%;
+}
+
+.player-chip__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(160deg, #3d6fb8, #23436f);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.player-chip__text {
+  display: grid;
+  min-width: 0;
+}
+
+.player-chip__name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-chip__role {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+/* ---------- Resource meters ---------- */
+.hud__meters {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4);
+}
+
+.meter {
+  --meter-color: var(--color-text);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.meter[data-meter='power'] {
+  --meter-color: var(--color-power);
+}
+
+.meter[data-meter='lifeSupport'] {
+  --meter-color: var(--color-life-support);
+}
+
+.meter[data-meter='shielding'] {
+  --meter-color: var(--color-shielding);
+}
+
+.meter__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.meter__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.meter__value {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.meter[data-level='warning'] .meter__value {
+  color: var(--color-warning);
+}
+
+.meter[data-level='critical'] .meter__value {
+  color: var(--color-critical);
+}
+
+.meter__track {
+  position: relative;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--track);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.4);
+  overflow: hidden;
+}
+
+.meter__fill {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--meter-color) 70%, white), var(--meter-color));
+  box-shadow:
+    inset 0 0 6px rgb(255 255 255 / 0.35),
+    0 0 12px color-mix(in srgb, var(--meter-color) 60%, transparent);
+  transform-origin: left center;
+  transition: transform 600ms var(--ease-out);
+}
+
+/* Ghost bars: where a previewed decision would take the meter (no number shown). */
+.meter__ghost {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.meter__ghost--up {
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in srgb, var(--meter-color) 55%, transparent) 0 4px,
+    color-mix(in srgb, var(--meter-color) 25%, transparent) 4px 8px
+  );
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--meter-color) 70%, transparent);
+}
+
+.meter__ghost--down {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(8 10 16 / 0.85) 0 4px,
+    rgb(255 107 107 / 0.55) 4px 8px
+  );
+}
+
+.meter[data-preview] .meter__label::after {
+  margin-left: var(--space-1);
+  font-size: var(--text-xs);
+}
+
+.meter[data-preview='up'] .meter__label::after {
+  content: '▲';
+  color: var(--color-good);
+}
+
+.meter[data-preview='down'] .meter__label::after {
+  content: '▼';
+  color: var(--color-warning);
+}
+
+/* The 30% warning line. */
+.meter__tick {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 30%;
+  width: 2px;
+  margin-left: -1px;
+  background: rgb(255 255 255 / 0.55);
+}
+
+/* ---------- Days of food ---------- */
+.food {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-2) var(--space-4) var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.food__icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--color-food);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.food__count {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-food);
+}
+
+.food[data-level='warning'] .food__count {
+  color: var(--color-warning);
+}
+
+.food[data-level='critical'] .food__count {
+  color: var(--color-critical);
+}
+
+.food__label {
+  color: var(--color-text-muted);
+}
+
+.food__preview {
+  font-size: var(--text-xs);
+}
+
+.food__preview[data-direction='up'] {
+  color: var(--color-good);
+}
+
+.food__preview[data-direction='down'] {
+  color: var(--color-warning);
+}
+
+/* ---------- Crew ---------- */
+.hud__crew {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 288px;
+  padding: var(--space-3) var(--space-4);
+}
+
+.crew-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.crew {
+  --health: var(--color-good);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.crew__portrait {
+  flex: none;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(160deg, #3a4a63, #1c2534);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* Status ring: a gap, then the health colour. */
+  box-shadow:
+    0 0 0 2px rgb(12 16 24 / 0.9),
+    0 0 0 4px var(--health);
+}
+
+.crew__portrait[data-health='yellow'],
+.crew__status[data-health='yellow'] {
+  --health: var(--color-warning);
+}
+
+.crew__portrait[data-health='red'],
+.crew__status[data-health='red'] {
+  --health: var(--color-critical);
+}
+
+.crew__text {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+
+.crew__name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crew__role {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.crew__status {
+  --health: var(--color-good);
+  flex: none;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--health) 18%, transparent);
+  color: var(--health);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+/* Mission control (radio only, on Earth) and the trainer (launch center): chips, not health faces. */
+.crew-extra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3) 0 0;
+  border-top: 1px solid var(--glass-border);
+  list-style: none;
+}
+
+.radio-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+  padding: 2px var(--space-3) 2px var(--space-2);
+  border-radius: var(--radius-full);
+  background: rgb(92 200 255 / 0.12);
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+}
+
+.radio-chip__icon {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.radio-chip__initials {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(160deg, #3a4a63, #1c2534);
+  color: var(--color-text);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.radio-chip--trainer {
+  background: rgb(255 255 255 / 0.08);
+}
+
+.radio-chip__text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.radio-chip__name {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* ---------- Challenge banner ---------- */
+.hud__bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 320px;
+  max-width: min(460px, calc(100vw - 2 * var(--space-4)));
+  padding: var(--space-3) var(--space-5);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.banner__text {
+  display: grid;
+  margin: 0;
+}
+
+.banner__count {
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.banner__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  text-wrap: balance;
+}
+
+/* Where, or how: "Out of the main exit", "Walk up to the console and press E". */
+.banner__hint {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.banner__progress {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.banner__progress li {
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: var(--track);
+}
+
+.banner__hazards {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.banner__progress li[data-state='done'] {
+  background: var(--color-accent);
+}
+
+.banner__progress li[data-state='current'] {
+  background: var(--color-text);
+  box-shadow: 0 0 8px rgb(255 255 255 / 0.6);
+}
+
+@media (max-width: 900px) {
+  .hud__crew {
+    width: 232px;
+  }
+
+  .crew__status {
+    display: none;
+  }
+}
+
+.hud__bottom[hidden] {
+  display: none;
+}
+
+/* A decision panel is open: the HUD sits above its backdrop so the meters
+   can be watched; on narrow windows the crew steps aside for the panel. */
+.hud[data-challenge='open'] {
+  z-index: 3;
+}
+
+@media (max-width: 1180px) {
+  .hud[data-challenge='open'] .hud__crew {
+    display: none;
+  }
+}
+
+/* Too narrow for both: the panel covers the HUD. */
+@media (max-width: 820px) {
+  .hud[data-challenge='open'] {
+    z-index: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .meter__fill {
+    transition: none;
+  }
+}
+
+/* Small windows (or browser zoom): the corner panels shrink toward their
+   corners so every panel stays fully on screen. */
+.hud__left,
+.hud__crew {
+  max-width: calc(100vw - 2 * var(--space-4));
+}
+
+@media (max-width: 1280px), (max-height: 720px) {
+  .hud__left {
+    transform: scale(0.88);
+    transform-origin: top left;
+  }
+
+  .hud__crew {
+    transform: scale(0.88);
+    transform-origin: top right;
+  }
+}
+
+@media (max-width: 1024px), (max-height: 600px) {
+  .hud__left {
+    transform: scale(0.76);
+  }
+
+  .hud__crew {
+    transform: scale(0.76);
+  }
+}

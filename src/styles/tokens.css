@@ -1,0 +1,86 @@
+/*
+ * Design tokens. Every colour, size, space and font in the UI comes from here.
+ * Spacing sits on a 4/8 px grid. Status colours: blue accent, orange warning,
+ * red critical, green good.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Neutrals */
+  --color-space: #05070d;
+  --color-text: #f4f6fb;
+  --color-text-muted: #c0c8d8;
+  --color-text-faint: #8f99ad;
+
+  /* Status */
+  --color-accent: #5cc8ff;
+  --color-good: #4fd18b;
+  --color-warning: #ffa94d;
+  --color-critical: #ff6b6b;
+
+  /* The menu: one warm accent for the main action, on deep space blue and purple */
+  --color-primary: #ff8a2a;
+  --color-primary-bright: #ffb057;
+  --color-primary-deep: #b9500a;
+  --color-primary-ink: #2b1203;
+  --color-violet: #9a86ff;
+  --menu-fill: rgb(12 14 36 / 0.86);
+  --menu-fill-solid: rgb(12 14 36 / 0.95);
+
+  /* Meters */
+  --color-power: #ffd166;
+  --color-life-support: #5cc8ff;
+  --color-shielding: #b79cff;
+  --color-food: #4fd18b;
+
+  /* Liquid glass. The fill is dark enough that text keeps 4.5:1 contrast over bright walls. */
+  --glass-fill: rgb(12 16 24 / 0.7);
+  --glass-fill-solid: rgb(12 16 24 / 0.92);
+  --glass-sheen: linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(255 255 255 / 0) 45%);
+  --glass-border: rgb(255 255 255 / 0.13);
+  --glass-highlight: rgb(255 255 255 / 0.2);
+  --glass-shadow: 0 12px 32px rgb(0 0 0 / 0.32), 0 2px 6px rgb(0 0 0 / 0.22);
+  --glass-blur: blur(18px) saturate(160%);
+  --track: rgb(255 255 255 / 0.1);
+
+  /* Type: two weights only, 400 and 600 */
+  --font-ui: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  /* Headlines, tabs and the big buttons: weight 800 italic only */
+  --font-display: 'Barlow Semi Condensed', 'Inter', system-ui, sans-serif;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-xxl: 40px;
+
+  /* Space */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-control: 12px;
+  --radius-panel: 18px;
+  --radius-full: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-enter: 260ms;
+  --duration-tab: 220ms;
+}
+
+/* Settings: large text. */
+:root[data-text-size='large'] {
+  --text-xs: 14px;
+  --text-sm: 17px;
+  --text-md: 19px;
+  --text-lg: 24px;
+  --text-xl: 32px;
+}
