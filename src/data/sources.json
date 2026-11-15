@@ -1,0 +1,670 @@
+{
+  "note": "Source table. `references` are real NASA (and partner agency) documents, each checked by opening it; `fact` repeats only what the document says. `sources` has one entry per outcome in src/data/challenges.ts: `refs` are the references behind it and `why` says what each teaches in this game. The effect sizes in challenges.ts are game units shaped by these facts, not NASA figures (see src/data/science.ts). An entry needs a second person in `reviewer` before it counts as reviewed. Never invent a source.",
+  "fields": {
+    "outcomeId": "Matches an option or bucket id in challenges.ts",
+    "title": "The main reference's title",
+    "url": "The main reference's link",
+    "retrieved": "Date the source was read, YYYY-MM-DD",
+    "owner": "Who found it",
+    "reviewer": "Who checked it (null until a person has)",
+    "refs": "Reference ids, main one first",
+    "why": "What it teaches in this game, one sentence"
+  },
+  "references": [
+    {
+      "id": "rad-brief",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "publisher": "NASA Office of the Chief Health and Medical Officer",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "An astronaut's career radiation dose must stay under 600 mSv, and one solar particle event under 250 mSv. Aluminium and polyethylene shielding cut solar-storm dose by about half. A storm shelter adds about 10 cm of water, made by moving water containers. On the Moon's surface the background dose is about 0.5 mSv a day."
+    },
+    {
+      "id": "moon-facts",
+      "title": "Earth's Moon: Facts",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "fact": "One side of the Moon gets about two weeks of sunlight, then about two weeks of darkness. The surface reaches about 127 °C in full Sun and about −173 °C in the dark. Ice is found in permanently shadowed craters at the poles."
+    },
+    {
+      "id": "fsp",
+      "title": "A Deployable 40 kWe Lunar Fission Surface Power Concept (NTRS 20220004670)",
+      "publisher": "NASA Technical Reports Server",
+      "url": "https://ntrs.nasa.gov/citations/20220004670",
+      "retrieved": "2026-11-14",
+      "fact": "NASA studied a 40 kilowatt fission reactor for the Moon, because future crews, science and resource mining need continuous power, day and night. It would stand at least 1 km from the base."
+    },
+    {
+      "id": "rfc",
+      "title": "NASA Fuel Cell Tests Pave Way for Energy Storage on Moon",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/general/nasa-regenerative-fuel-cell-testing/",
+      "retrieved": "2026-11-14",
+      "fact": "A regenerative fuel cell works like a rechargeable battery: it joins hydrogen and oxygen into water to make electricity, and splits the water again to recharge. It could carry a base through the cold, dark, nearly two-week lunar night and weigh less than batteries storing the same energy."
+    },
+    {
+      "id": "co2-brief",
+      "title": "Carbon Dioxide (NASA-STD-3001 Technical Brief OCHMO-TB-004)",
+      "publisher": "NASA Office of the Chief Health and Medical Officer",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "In a study of 49 space station astronauts, 19 reported headaches, and headaches went with higher carbon dioxide levels. NASA's standard keeps cabin CO2 below 3 mmHg."
+    },
+    {
+      "id": "plants",
+      "title": "Growing Plants in Space",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/exploration-research-and-technology/growing-plants-in-space/",
+      "retrieved": "2026-11-14",
+      "fact": "Veggie, the space station's garden, grows plants under red and blue LED lights, with water and fertilizer in small pillows. Fresh food helps prevent vitamin shortages on long missions and makes the crew feel better."
+    },
+    {
+      "id": "csa-food",
+      "title": "Toolkit for educators and youth: Food production on the Moon and in remote areas",
+      "publisher": "Canadian Space Agency",
+      "url": "https://www.asc-csa.gc.ca/eng/youth-educators/toolkits/food-production/",
+      "retrieved": "2026-11-14",
+      "fact": "The Canadian Space Agency explains how growing food in space connects to astronauts' health and nutrition, and how the same ideas can help remote communities on Earth."
+    },
+    {
+      "id": "isru",
+      "title": "Overview: In-Situ Resource Utilization",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+      "retrieved": "2026-11-14",
+      "fact": "Water ice is buried under the Moon's soil in some places; the LCROSS impact found that nearly five percent of the soil it hit was water. NASA plans to turn that ice into drinking water and oxygen."
+    },
+    {
+      "id": "basecamp",
+      "title": "NASA's Artemis Base Camp on the Moon Will Need Light, Water, Elevation",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/humans-in-space/nasas-artemis-base-camp-on-the-moon-will-need-light-water-elevation/",
+      "retrieved": "2026-11-14",
+      "fact": "Near the south pole, high ridges and crater rims get long periods of sunlight for power, while crater floors stay dark and may hold frozen water for life support. Planners trade sunlight against distance to the ice."
+    },
+    {
+      "id": "artemis-sun",
+      "title": "To Protect Artemis II Astronauts, NASA Experts Keep Eyes on Sun",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/missions/artemis/artemis-2/to-protect-artemis-ii-astronauts-nasa-experts-keep-eyes-on-sun/",
+      "retrieved": "2026-11-14",
+      "fact": "NASA and NOAA watch the Sun around the clock during crewed flights. If radiation rises past a threshold, the crew is told to shelter: they move stowed gear against the walls, because mass absorbs the particles."
+    },
+    {
+      "id": "flares",
+      "title": "Solar Storms and Flares",
+      "publisher": "NASA Science",
+      "url": "https://science.nasa.gov/sun/solar-storms-and-flares/",
+      "retrieved": "2026-11-14",
+      "fact": "Flares are ranked C, M and X. Each letter is about ten times stronger than the one before, so an X flare is 100 times stronger than a C flare. Fast particles from solar eruptions are a radiation risk to astronauts."
+    },
+    {
+      "id": "sleep",
+      "title": "Evidence Report: Risk of Performance Decrements and Adverse Health Outcomes Resulting from Sleep Loss, Circadian Desynchronization, and Work Overload",
+      "publisher": "NASA Human Research Program",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/sleep.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "Space station astronauts sleep less in space than on the ground. NASA counts 10-hour work days on more than 3 days a week as a critical overload, because tired crews make more mistakes."
+    },
+    {
+      "id": "food-hrr",
+      "title": "Evidence Report: Risk of Inadequate Food System",
+      "publisher": "NASA Human Research Program",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/food.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "Space station crews get about 1.8 kg of food plus packaging per person per day, and all of it has to be launched."
+    },
+    {
+      "id": "mass",
+      "title": "Money Mass-ematics",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/10/money-mass-ematics-1.0-en-508.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "Every kilogram launched adds cost and energy, so mission planners count every kilogram they pack."
+    },
+    {
+      "id": "iss-logistics",
+      "title": "Managing NASA's International Space Station Logistics and Maintenance Program (NTRS 20100033370)",
+      "publisher": "NASA Technical Reports Server",
+      "url": "https://ntrs.nasa.gov/citations/20100033370",
+      "retrieved": "2026-11-14",
+      "fact": "The space station is kept running by swapping broken units for spare ones carried on board, because help from Earth takes a long time to arrive."
+    },
+    {
+      "id": "safe-haven",
+      "title": "Protecting Crew and Surface Systems with a Long-Duration Lunar Safe Haven (NTRS 20210022066)",
+      "publisher": "NASA Technical Reports Server",
+      "url": "https://ntrs.nasa.gov/citations/20210022066",
+      "retrieved": "2026-11-14",
+      "fact": "Moon soil (regolith) piled 3 to 7 m thick over a base is good radiation shielding, and machines could dig and pile it."
+    },
+    {
+      "id": "lunanet",
+      "title": "LunaNet",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/communicating-with-missions/lunanet/",
+      "retrieved": "2026-11-14",
+      "fact": "Relay satellites will keep crews at the lunar south pole in touch with Earth, even where Earth can't be seen in the sky."
+    },
+    {
+      "id": "suit",
+      "title": "Spacewalk Spacesuit Basics",
+      "publisher": "NASA",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/",
+      "retrieved": "2026-11-14",
+      "fact": "A spacesuit's backpack holds the oxygen the astronaut breathes and removes the carbon dioxide they breathe out. A walk outside lasts several hours and uses up these supplies."
+    },
+    {
+      "id": "rover-brief",
+      "title": "Extraterrestrial Surface Transport Vehicles: Rovers (NASA-STD-3001 Technical Brief OCHMO-TB-023)",
+      "publisher": "NASA Office of the Chief Health and Medical Officer",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-023-extraterrestrial-surface-transport-vehicles-rovers.pdf",
+      "retrieved": "2026-11-14",
+      "fact": "The Apollo rover's battery could have driven 92 km, but crews never went further than 7.6 km: the 'walkback limit', the furthest they could walk home if it broke."
+    },
+    {
+      "id": "donki",
+      "title": "DONKI: Space Weather Database Of Notifications, Knowledge, Information",
+      "publisher": "NASA Community Coordinated Modeling Center",
+      "url": "https://ccmc.gsfc.nasa.gov/tools/DONKI/",
+      "retrieved": "2026-11-14",
+      "fact": "NASA's record of real solar flares, coronal mass ejections, solar energetic particle events and geomagnetic storms. The game's solar storms are real events from it."
+    },
+    {
+      "id": "osdr",
+      "title": "NASA Open Science Data Repository (OSDR)",
+      "publisher": "NASA",
+      "url": "https://osdr.nasa.gov/bio/",
+      "retrieved": "2026-11-14",
+      "fact": "NASA's public archive of space biology and astronaut health research. The game links a few of its real studies to the crew's health and the greenhouse."
+    },
+    {
+      "id": "comm-delay",
+      "title": "Assessment of the State of Communication Delay Research in Preparation for Missions Beyond Low Earth Orbit (NASA/TM–20250003885)",
+      "publisher": "NASA Technical Reports Server",
+      "url": "https://ntrs.nasa.gov/citations/20250003885",
+      "retrieved": "2026-11-14",
+      "fact": "Lunar missions may see one-way communication delays of 3 to 14 seconds. NASA expects about 5.6 seconds for voice from Earth on Artemis (Orion), against 1.3 seconds for Apollo telemetry."
+    }
+  ],
+  "sources": [
+    {
+      "outcomeId": "c01-a",
+      "title": "Earth's Moon: Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "moon-facts",
+        "rfc"
+      ],
+      "why": "Solar panels make nothing in the two-week lunar night, so batteries must carry it."
+    },
+    {
+      "outcomeId": "c01-b",
+      "title": "NASA Fuel Cell Tests Pave Way for Energy Storage on Moon",
+      "url": "https://www.nasa.gov/general/nasa-regenerative-fuel-cell-testing/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rfc"
+      ],
+      "why": "A fuel cell makes power from stored hydrogen and oxygen, even in the dark."
+    },
+    {
+      "outcomeId": "c01-c",
+      "title": "A Deployable 40 kWe Lunar Fission Surface Power Concept (NTRS 20220004670)",
+      "url": "https://ntrs.nasa.gov/citations/20220004670",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "fsp"
+      ],
+      "why": "A fission reactor gives continuous power, day and night, but is heavy."
+    },
+    {
+      "outcomeId": "c02-supplies",
+      "title": "Evidence Report: Risk of Inadequate Food System",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/food.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "food-hrr",
+        "mass"
+      ],
+      "why": "Food, air and water for every day must be launched; each block is mass."
+    },
+    {
+      "outcomeId": "c02-shielding",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief",
+        "mass"
+      ],
+      "why": "Shielding cuts solar-storm dose by about half, but it is heavy."
+    },
+    {
+      "outcomeId": "c02-power-gear",
+      "title": "NASA Fuel Cell Tests Pave Way for Energy Storage on Moon",
+      "url": "https://www.nasa.gov/general/nasa-regenerative-fuel-cell-testing/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rfc",
+        "mass"
+      ],
+      "why": "Energy storage carries the base through the dark, and it weighs a lot."
+    },
+    {
+      "outcomeId": "c02-spares",
+      "title": "Managing NASA's International Space Station Logistics and Maintenance Program (NTRS 20100033370)",
+      "url": "https://ntrs.nasa.gov/citations/20100033370",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "iss-logistics",
+        "mass"
+      ],
+      "why": "Crews fix things by swapping in spares carried on board."
+    },
+    {
+      "outcomeId": "c03-a",
+      "title": "Managing NASA's International Space Station Logistics and Maintenance Program (NTRS 20100033370)",
+      "url": "https://ntrs.nasa.gov/citations/20100033370",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "iss-logistics",
+        "co2-brief"
+      ],
+      "why": "Swapping a spare part fixes the scrubber for good."
+    },
+    {
+      "outcomeId": "c03-b",
+      "title": "Carbon Dioxide (NASA-STD-3001 Technical Brief OCHMO-TB-004)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "co2-brief"
+      ],
+      "why": "Carbon dioxide must be kept low: a backup system costs power."
+    },
+    {
+      "outcomeId": "c03-c",
+      "title": "Carbon Dioxide (NASA-STD-3001 Technical Brief OCHMO-TB-004)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "co2-brief"
+      ],
+      "why": "Higher carbon dioxide gives astronauts headaches."
+    },
+    {
+      "outcomeId": "c04-a",
+      "title": "To Protect Artemis II Astronauts, NASA Experts Keep Eyes on Sun",
+      "url": "https://science.nasa.gov/missions/artemis/artemis-2/to-protect-artemis-ii-astronauts-nasa-experts-keep-eyes-on-sun/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "artemis-sun",
+        "rad-brief"
+      ],
+      "why": "Crews shelter behind stowed gear when radiation rises."
+    },
+    {
+      "outcomeId": "c04-b",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief"
+      ],
+      "why": "Anyone outside the shelter takes more of the storm's dose."
+    },
+    {
+      "outcomeId": "c04-c",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief"
+      ],
+      "why": "Dose adds up over a career, so every storm counts."
+    },
+    {
+      "outcomeId": "c05-a",
+      "title": "NASA's Artemis Base Camp on the Moon Will Need Light, Water, Elevation",
+      "url": "https://www.nasa.gov/humans-in-space/nasas-artemis-base-camp-on-the-moon-will-need-light-water-elevation/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "basecamp"
+      ],
+      "why": "Ridges near the south pole get long sunlight, far from the icy craters."
+    },
+    {
+      "outcomeId": "c05-b",
+      "title": "NASA's Artemis Base Camp on the Moon Will Need Light, Water, Elevation",
+      "url": "https://www.nasa.gov/humans-in-space/nasas-artemis-base-camp-on-the-moon-will-need-light-water-elevation/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "basecamp",
+        "isru"
+      ],
+      "why": "Dark crater floors may hold ice, but get little sunlight."
+    },
+    {
+      "outcomeId": "c05-c",
+      "title": "NASA's Artemis Base Camp on the Moon Will Need Light, Water, Elevation",
+      "url": "https://www.nasa.gov/humans-in-space/nasas-artemis-base-camp-on-the-moon-will-need-light-water-elevation/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "basecamp"
+      ],
+      "why": "Planners balance sunlight against distance to the ice."
+    },
+    {
+      "outcomeId": "c06-life-support",
+      "title": "Carbon Dioxide (NASA-STD-3001 Technical Brief OCHMO-TB-004)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-004-carbon-dioxide.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "co2-brief",
+        "food-hrr"
+      ],
+      "why": "Air cleaning and water systems need power every day."
+    },
+    {
+      "outcomeId": "c06-greenhouse",
+      "title": "Growing Plants in Space",
+      "url": "https://www.nasa.gov/exploration-research-and-technology/growing-plants-in-space/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "plants",
+        "csa-food"
+      ],
+      "why": "Plants need light, and lights need power."
+    },
+    {
+      "outcomeId": "c06-drill",
+      "title": "Protecting Crew and Surface Systems with a Long-Duration Lunar Safe Haven (NTRS 20210022066)",
+      "url": "https://ntrs.nasa.gov/citations/20210022066",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "safe-haven"
+      ],
+      "why": "Moon soil piled on a base is radiation shielding."
+    },
+    {
+      "outcomeId": "c06-antenna",
+      "title": "LunaNet",
+      "url": "https://www.nasa.gov/communicating-with-missions/lunanet/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "lunanet",
+        "artemis-sun"
+      ],
+      "why": "The radio link lets Earth warn the crew about the Sun."
+    },
+    {
+      "outcomeId": "c07-a",
+      "title": "Growing Plants in Space",
+      "url": "https://www.nasa.gov/exploration-research-and-technology/growing-plants-in-space/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "plants",
+        "csa-food"
+      ],
+      "why": "Plants turn water and light into fresh food."
+    },
+    {
+      "outcomeId": "c07-b",
+      "title": "Growing Plants in Space",
+      "url": "https://www.nasa.gov/exploration-research-and-technology/growing-plants-in-space/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "plants"
+      ],
+      "why": "Fewer plants use less water and give less food."
+    },
+    {
+      "outcomeId": "c07-c",
+      "title": "Toolkit for educators and youth: Food production on the Moon and in remote areas",
+      "url": "https://www.asc-csa.gc.ca/eng/youth-educators/toolkits/food-production/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "csa-food",
+        "food-hrr"
+      ],
+      "why": "Without new crops, the crew lives on food launched from Earth."
+    },
+    {
+      "outcomeId": "c08-a",
+      "title": "Overview: In-Situ Resource Utilization",
+      "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "isru",
+        "rad-brief"
+      ],
+      "why": "Moon ice can become water and oxygen, but time outside adds dose."
+    },
+    {
+      "outcomeId": "c08-b",
+      "title": "Overview: In-Situ Resource Utilization",
+      "url": "https://www.nasa.gov/overview-in-situ-resource-utilization/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "isru"
+      ],
+      "why": "NASA still has to learn how best to dig and process lunar ice."
+    },
+    {
+      "outcomeId": "c08-c",
+      "title": "Extraterrestrial Surface Transport Vehicles: Rovers (NASA-STD-3001 Technical Brief OCHMO-TB-023)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/12/ochmo-tb-023-extraterrestrial-surface-transport-vehicles-rovers.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rover-brief",
+        "isru"
+      ],
+      "why": "Crews stay within the distance they could walk home."
+    },
+    {
+      "outcomeId": "c09-a",
+      "title": "Evidence Report: Risk of Performance Decrements and Adverse Health Outcomes Resulting from Sleep Loss, Circadian Desynchronization, and Work Overload",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/sleep.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "sleep"
+      ],
+      "why": "Rest prevents the mistakes that tired crews make."
+    },
+    {
+      "outcomeId": "c09-b",
+      "title": "Evidence Report: Risk of Performance Decrements and Adverse Health Outcomes Resulting from Sleep Loss, Circadian Desynchronization, and Work Overload",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/sleep.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "sleep"
+      ],
+      "why": "Light duty limits overload but doesn't fully rest the crew."
+    },
+    {
+      "outcomeId": "c09-c",
+      "title": "Evidence Report: Risk of Performance Decrements and Adverse Health Outcomes Resulting from Sleep Loss, Circadian Desynchronization, and Work Overload",
+      "url": "https://humanresearchroadmap.nasa.gov/evidence/reports/sleep.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "sleep",
+        "safe-haven"
+      ],
+      "why": "Long work days are a critical overload for a crew."
+    },
+    {
+      "outcomeId": "c10-a",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief",
+        "artemis-sun"
+      ],
+      "why": "A shelter of water and stowage gives the lowest storm dose."
+    },
+    {
+      "outcomeId": "c10-b",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief"
+      ],
+      "why": "People outside the shelter take more of the storm's dose."
+    },
+    {
+      "outcomeId": "c10-c",
+      "title": "Design for Ionizing Radiation Protection (NASA-STD-3001 Technical Brief OCHMO-TB-020)",
+      "url": "https://www.nasa.gov/wp-content/uploads/2023/03/radiation-protection-technical-brief-ochmo.pdf",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "rad-brief",
+        "flares"
+      ],
+      "why": "An unsheltered crew in a big solar particle event can pass the limit."
+    },
+    {
+      "outcomeId": "c11-a",
+      "title": "Spacewalk Spacesuit Basics",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "suit",
+        "iss-logistics"
+      ],
+      "why": "A walk outside uses the suit's oxygen; the fix needs a spare."
+    },
+    {
+      "outcomeId": "c11-b",
+      "title": "Spacewalk Spacesuit Basics",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "suit"
+      ],
+      "why": "A short trip outside uses fewer suit supplies."
+    },
+    {
+      "outcomeId": "c11-c",
+      "title": "Earth's Moon: Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "moon-facts"
+      ],
+      "why": "Less power before the long lunar night is risky."
+    },
+    {
+      "outcomeId": "c12-a",
+      "title": "Earth's Moon: Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "moon-facts",
+        "rfc"
+      ],
+      "why": "Saving energy is how equipment survives the two-week night."
+    },
+    {
+      "outcomeId": "c12-b",
+      "title": "Earth's Moon: Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "moon-facts"
+      ],
+      "why": "Running everything in the cold, dark night drains stored energy fast."
+    },
+    {
+      "outcomeId": "c12-c",
+      "title": "Earth's Moon: Facts",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "retrieved": "2026-11-14",
+      "owner": "Claude Code (AI research, for the team)",
+      "reviewer": null,
+      "refs": [
+        "moon-facts",
+        "sleep"
+      ],
+      "why": "Less work saves power, but long dark days wear a crew down."
+    }
+  ]
+}
