@@ -1,0 +1,58 @@
+/* A story beat: the sequence overlay's bars and Skip, and the storm's red alarm light. */
+.beat__alarm {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgb(255 40 30 / 0.05), rgb(255 40 30 / 0.35));
+  animation: beat-alarm 0.75s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes beat-alarm {
+  from {
+    opacity: 0.15;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+:root[data-motion='reduced'] .beat__alarm {
+  animation: none;
+  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beat__alarm {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+/* A beat keeps the minimap (bottom right) on screen, unlike the launch: its Skip goes bottom left, clear of it. */
+.beat .sequence__skip {
+  right: auto;
+  left: var(--space-4);
+}
+
+/* A question in a story beat (Houston's cargo question): the player's answers as big buttons. */
+.beat__answers {
+  position: absolute;
+  left: 50%;
+  /* Above the task banner and the mouse hint at the bottom of the screen. */
+  bottom: calc(var(--bar) + clamp(110px, 20vh, 180px));
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3, 12px);
+  width: min(720px, calc(100vw - 32px));
+  pointer-events: auto;
+}
+
+.beat__answer {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  font-size: 1.1rem;
+  padding: 14px 20px;
+}
