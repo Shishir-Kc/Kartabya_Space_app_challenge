@@ -420,6 +420,10 @@ export function buildProp(map: GameMap, prop: Prop, parts: Parts, extras: MapExt
       return antenna(f, prop)
     case 'excavator':
       return excavator(f, prop)
+    case 'tribute':
+    case 'developer':
+      // Drawn on their own (src/scene/DeveloperTribute.tsx); the props give the tribute its place, collision and baked shadows.
+      return
   }
 }
 

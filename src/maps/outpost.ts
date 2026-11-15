@@ -195,6 +195,16 @@ export const OUTPOST: GameMap = {
     { id: 'antenna', kind: 'antenna', position: { x: 8, z: -28 }, size: { w: 1.6, d: 1.6, h: 6.5 }, yaw: Math.PI, ground: true },
     { id: 'excavator', kind: 'excavator', position: { x: -99, z: -60 }, size: { w: 2.2, d: 3.6, h: 2.4 }, yaw: 2.3, ground: true },
 
+    // ---- Surface: the developers' tribute, on the ice crater's sunlit western rim (70 m from its centre) ----
+    // Facing west, toward the rover coming from the outpost, and well clear of its direct route (about 36 m south).
+    // A plinth marked DEVELOPERS with the three developers on it in Moon suits, the flag of Nepal in the middle
+    // (src/scene/DeveloperTribute.tsx). Each developer's prop is the size of a standing figure, so the baked
+    // shadows are three long thin ones, not one slab; left to right as seen from the front.
+    { id: 'tribute', kind: 'tribute', position: { x: 201, z: 122 }, size: { w: 5.2, d: 1.5, h: 0.35 }, yaw: -Math.PI / 2, ground: true },
+    { id: 'developer-rishab', kind: 'developer', label: 'Rishab', position: { x: 201, z: 120.3 }, size: { w: 0.9, d: 0.9, h: 2.25 }, yaw: -Math.PI / 2, ground: true },
+    { id: 'developer-shishir', kind: 'developer', label: 'Shishir', position: { x: 201, z: 122 }, size: { w: 0.9, d: 0.9, h: 2.25 }, yaw: -Math.PI / 2, ground: true },
+    { id: 'developer-vishal', kind: 'developer', label: 'Vishal', position: { x: 201, z: 123.7 }, size: { w: 0.9, d: 0.9, h: 2.25 }, yaw: -Math.PI / 2, ground: true },
+
     // ---- Airlock ----
     { id: 'suit-rack', kind: 'suit-rack', position: { x: -14.2, z: -1.42 }, size: { w: 1.5, d: 0.3, h: 2.2 }, solid: false },
     { id: 'airlock-panel', kind: 'wall-screen', position: { x: -12.55, z: 1.45 }, size: { w: 0.3, d: 0.05, h: 0.22 }, elevation: 1.15, yaw: Math.PI, solid: false },
@@ -265,6 +275,8 @@ export const OUTPOST: GameMap = {
       { id: 'antenna', label: 'Comms antenna', x: 8, z: -28, radius: 6, ping: true },
       { id: 'regolith-site', label: 'Regolith site', x: -100, z: -60, radius: 16, ping: true },
       { id: 'ice-crater', label: 'Ice crater', x: 270, z: 110, radius: 50, ping: true },
+      // Not pinged on the map: a surprise on the way to the ice.
+      { id: 'developers', label: 'Developers’ tribute', x: 201, z: 122, radius: 10 },
     ],
     // The edge of the explorable area: a ring of boulders about 370 m out.
     boundary: { x: 0, z: 0, radius: 370 },

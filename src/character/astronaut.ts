@@ -556,6 +556,14 @@ export class Astronaut {
     this.applyPose(seatedPose(this.floatTime), dt, 0.14)
   }
 
+  /**
+   * Holds a pose built from bone rotations (the developers' tribute), eased
+   * over about a seventh of a second; the first call snaps to it.
+   */
+  holdPose(pose: BonePose, dt: number): void {
+    this.applyPose(pose, dt, 0.14)
+  }
+
   /** Eases the main bones toward `target` (over about `ease` seconds) and poses the skeleton with it. */
   private applyPose(target: BonePose, dt: number, ease: number): void {
     const k = 1 - Math.exp(-dt / ease)

@@ -276,6 +276,9 @@ export type PropKind =
   | 'solar-panel'
   | 'antenna'
   | 'excavator'
+  // The developers' tribute by the ice crater (src/scene/DeveloperTribute.tsx): the plinth, and one per developer (their name in `label`)
+  | 'tribute'
+  | 'developer'
 
 /**
  * A prop. Its footprint is `size.w` by `size.d` before turning by `yaw`;

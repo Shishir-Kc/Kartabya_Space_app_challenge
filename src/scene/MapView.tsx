@@ -32,6 +32,7 @@ import { AirlockView } from './AirlockView'
 import { powerLight } from './LightingRig'
 import { SlidingDoors } from './SlidingDoors'
 import { CrewView } from './CrewView'
+import { DeveloperTribute } from './DeveloperTribute'
 
 /** Materials whose meshes block the key light. The ceiling must not, or every room goes dark. */
 const CASTS_SHADOW = new Set<MaterialKey>(['wall', 'brushed', 'painted', 'rubber', 'fabric'])
@@ -252,6 +253,7 @@ export function MapView({ map }: { map: GameMap }) {
       {map.exterior?.scene === 'space' && <Space />}
       {lunar && <LunarSky exterior={lunar} />}
       {lunar && <LunarRocks map={map} material={materials.regolith as MeshStandardMaterial} />}
+      {lunar && <DeveloperTribute map={map} />}
       {map.airlock && <AirlockView map={map} />}
       {map.rover && <RoverView map={map} />}
       {map.rover && lunar && <HeadlightPool map={map} />}

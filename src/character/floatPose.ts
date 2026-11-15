@@ -24,11 +24,11 @@ const X = new Vector3(1, 0, 0)
 const Y = new Vector3(0, 1, 0)
 const DOWN = new Vector3(0, -1, 0)
 const deg = (d: number) => (d * Math.PI) / 180
-const about = (axis: Vector3, degrees: number) => new Quaternion().setFromAxisAngle(axis, deg(degrees))
+export const about = (axis: Vector3, degrees: number) => new Quaternion().setFromAxisAngle(axis, deg(degrees))
 const toward = (from: Vector3, to: Vector3) => new Quaternion().setFromUnitVectors(from.clone().normalize(), to.clone().normalize())
 
 /** An arm pointing along `upper`, its forearm along `fore` (both in rest space; mirrored for the right side). */
-function arm(pose: BonePose, side: 'l' | 'r', upper: [number, number, number], fore: [number, number, number]): void {
+export function arm(pose: BonePose, side: 'l' | 'r', upper: [number, number, number], fore: [number, number, number]): void {
   const m = side === 'l' ? 1 : -1
   const rest = new Vector3(m, 0, 0)
   const u = new Vector3(upper[0] * m, upper[1], upper[2]).normalize()
@@ -38,7 +38,7 @@ function arm(pose: BonePose, side: 'l' | 'r', upper: [number, number, number], f
 }
 
 /** A leg whose thigh points along `thigh` and shin along `shin`, foot tipped down by `point` degrees. */
-function leg(pose: BonePose, side: 'l' | 'r', thigh: [number, number, number], shin: [number, number, number], point: number): void {
+export function leg(pose: BonePose, side: 'l' | 'r', thigh: [number, number, number], shin: [number, number, number], point: number): void {
   const m = side === 'l' ? 1 : -1
   const t = new Vector3(thigh[0] * m, thigh[1], thigh[2]).normalize()
   const s = new Vector3(shin[0] * m, shin[1], shin[2]).normalize()
