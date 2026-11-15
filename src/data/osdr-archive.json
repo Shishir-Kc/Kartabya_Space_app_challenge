@@ -1,0 +1,53 @@
+{
+  "note": "Archived real studies from NASA OSDR (Open Science Data Repository), rebuilt by tools/fetch-osdr.mjs. Titles and descriptions are copied unchanged. This is archived data, not a live query.",
+  "source": "NASA Open Science Data Repository (OSDR)",
+  "sourceUrl": "https://osdr.nasa.gov/bio/",
+  "retrieved": "2026-11-14",
+  "studies": [
+    {
+      "accession": "OSD-53",
+      "title": "Spaceflight Modulates Gene Expression in Astronauts",
+      "description": "Astronauts are exposed to a unique combination of stressors during spaceflight, which leads to alterations in their physiology and potentially increases their susceptibility to infectious pathogens. Here we report the first microarray evaluation of any astronaut tissue sample, specifically whole blood, before and after spaceflight using an array comprising 234 well-characterized stress response genes. Differentially regulated genes included those important for DNA repair, oxidative stress, and protein folding/degradation. Microarrays comprising 234 well characterized stress-related genes were ",
+      "organism": "Homo sapiens",
+      "projectType": "Spaceflight Study",
+      "flightProgram": null,
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-53"
+    },
+    {
+      "accession": "OSD-569",
+      "title": "Whole Blood Measurements from the SpaceX Inspiration4 Mission (RNA-seq, epitranscriptome, WGS, clonal hematopoiesis, CBC)",
+      "description": "The SpaceX Inspiration4 mission was a 3-day mission with four private astronauts to low Earth orbit that occurred in September 2021. The crew collected biospecimen samples before, during, and after flight. One of these biospecimen collections included whole blood collected via venipuncture into PaxGene Blood RNA tubes (BD Biosciences, #762165), collected pre-flight (L-92, L-44, L-3) and post-flight (R+1, R+45, R+82, R+194). Total RNA was purified from each tube and mRNA was sequenced using the Oxford Nanopore Technologies direct RNA-sequencing kit on the PromethION. Data was used to generate d",
+      "organism": "Homo sapiens",
+      "projectType": "Spaceflight Study",
+      "flightProgram": null,
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-569"
+    },
+    {
+      "accession": "OSD-992",
+      "title": "Space radiation induces distinct senescent phenotypes: Implications for space travel [scRNA-Seq]",
+      "description": "As Earth's magnetic field weakens, space radiation begins to pose a significant threat to the health of not only space travelers, but the world's population. Space radiation, comprising high-energy and high-charge ions, creates distinct clusters of DNA damage and dense macromolecular damage that result in the accumulation of senescent cells (SnCs) known to play a critical role in promoting multimorbidity. Here, we demonstrate that human fibroblasts exposed to different forms of space radiation acquire senescence-associated phenotypes including morphological alterations and the accumulation of ",
+      "organism": "Homo sapiens",
+      "projectType": "Ground Study",
+      "flightProgram": null,
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-992"
+    },
+    {
+      "accession": "OSD-412",
+      "title": "Spatial characterization of microbial communities on multi-species leafy greens grown simultaneously in the Veggie vegetable production systems on the International Space Station VEG-03D",
+      "description": "Investigates the microbial communities of plants and Veggie pillow components with culturable and non-culturable methods providing qualitative and quantitative data. This studies also stresses the food safety component of fresh crops grown on the ISS. The VEG-03D technology demonstration was completed achieving simultaneous multi-species plant growth within a Veggie unit on the International Space Station (ISS). Microbiological characterization using molecular and culture-based methods was performed on leaves and roots from two harvests of three leafy greens, red romaine lettuce (Lactuca sativ",
+      "organism": "Microbiota",
+      "projectType": "Spaceflight Study",
+      "flightProgram": "International Space Station (ISS)",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-412"
+    },
+    {
+      "accession": "OSD-772",
+      "title": "PH-04 Chile Peppers in Space",
+      "description": "Growing plants in spaceflight presents challenges to achieve optimal plant growth and productivity. One of NASA's goals is growing edible crops in spaceflight to supplement the astronauts' diet with fresh vegetables and assess food safety of the crops. It is important to understand the optimal growing conditions for crops grown in spaceflight conditions. Leafy greens have been grown on the International Space Station in the Veggie plant chamber and were safe for the astronauts to eat. The Advanced Plant Habitat (APH), an enclosed, controlled plant growth facility on the ISS has also been used ",
+      "organism": "Microbiota",
+      "projectType": "Spaceflight Study",
+      "flightProgram": "International Space Station (ISS)",
+      "url": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-772"
+    }
+  ]
+}
