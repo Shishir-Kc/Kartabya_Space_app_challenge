@@ -1,6 +1,6 @@
 # Lunar Outpost: Junior Astronaut Mission Trainer
 
-A browser game for the NASA Space Apps Challenge 2026 ("Build a Junior Astronaut Mission Trainer"). Kids aged 7–12 play the mission engineer of a lunar outpost and make twelve decisions about power, life support, radiation shielding, food and communication. Every choice costs something, and earlier choices come back later in the run. It is a static site: no backend, no login, no download.
+A browser game for the NASA Space Apps Challenge 2026 ("Build a Junior Astronaut Mission Trainer"). Kids aged 7–12 play the mission engineer of a lunar outpost and make twelve decisions about power, life support, radiation shielding, food and communication. Every choice costs something, and earlier choices come back later in the run. It is a static site: no backend, no login, no download.Playable in any device.
 
 ## Run it
 
@@ -28,28 +28,28 @@ The game opens on its title, then a **lobby**: your astronaut on a lit podium, w
 
 ## Controls
 
-| Key | Action |
-| --- | --- |
-| W A S D | Walk (Shift to run) |
-| Space | Jump |
-| Q | Sneak: crouch and move slowly (press Q again to stand) |
-| Mouse | Look around (click the view to capture the mouse) |
-| ← → | Turn |
-| E | Use the console or marker you are looking at |
-| G | Open or close your guidebook (words to know, where your tasks are, controls) |
-| M | Free the mouse to click the map |
-| V | Cycle first person → second person (the camera in front, looking back at you) → third person (remembered next time) |
-| Enter | Skip a story scene, a cinematic or an ending scene; commit or continue in a panel |
-| Esc | Pause, or close a panel |
+| Key     | Action                                                                                                              |
+| ------- | ------------------------------------------------------------------------------------------------------------------- |
+| W A S D | Walk (Shift to run)                                                                                                 |
+| Space   | Jump                                                                                                                |
+| Q       | Sneak: crouch and move slowly (press Q again to stand)                                                              |
+| Mouse   | Look around (click the view to capture the mouse)                                                                   |
+| ← →     | Turn                                                                                                                |
+| E       | Use the console or marker you are looking at                                                                        |
+| G       | Open or close your guidebook (words to know, where your tasks are, controls)                                        |
+| M       | Free the mouse to click the map                                                                                     |
+| V       | Cycle first person → second person (the camera in front, looking back at you) → third person (remembered next time) |
+| Enter   | Skip a story scene, a cinematic or an ending scene; commit or continue in a panel                                   |
+| Esc     | Pause, or close a panel                                                                                             |
 
 On the spacecraft the same keys float instead of walk:
 
-| Key | Action |
-| --- | --- |
-| W A S D | Float where you look, including up and down (Shift to float faster) |
-| Space / Q | Float straight up / down |
-| E, V, M, Esc | As above |
-| Enter | Skip the launch |
+| Key          | Action                                                              |
+| ------------ | ------------------------------------------------------------------- |
+| W A S D      | Float where you look, including up and down (Shift to float faster) |
+| Space / Q    | Float straight up / down                                            |
+| E, V, M, Esc | As above                                                            |
+| Enter        | Skip the launch                                                     |
 
 **Easy float** (the default, set in Settings) slowly turns you back upright so the ceiling stays up. **Free float** lets you roll and look almost straight up and down.
 
@@ -87,6 +87,7 @@ Every challenge is data in `src/data/challenges.ts`; `docs/CHALLENGE_TEMPLATE.md
 **Random hazards.** Solar storms and meteoroid hits are natural events, so they come at random rather than at set moments: solar storms in transit (the challenge 4 panel), solar storms at the outpost (10) and meteoroid hits on a solar panel (11), **0 to 3 of each per run**, more likely the longer the mission takes. The planned mission is nine tasks (1, 2, 3, 5, 6, 7, 8, 9, 12); the banner shows "Task N of 9", the step to take right now, and a tally ("Storms 1 · Meteoroids 0"). The step follows the crew's directions as they say them ("Listen to your trainer", "Follow the trainer to the briefing room", "Meet Houston at the communications building", "Take the crew elevator down", "Go to the greenhouse"), with a short hint when it helps ("Out of the main exit", "Walk up to the console and press E"); it is worked out every frame from the run, so a skipped scene or a task done out of order can't leave it behind (`src/scene/objective.ts`). The storm rate is real: it is based on the radiation storms that endanger astronauts, solar energetic particle (SEP) events, of which DONKI recorded 119 in 2024 (against 1036 M- and X-class flares, most of which never send one out). The game speeds time up so one minute of play stands for nine hours of 2024's Sun, about 0.12 storms a minute (`src/data/science.ts`); storms draw real flares that had a linked SEP first. At the outpost the chance grows with every mission day. The meteoroid rate is game-scale (NASA's Meteoroid Environment Office gives no usable rate for hits on a solar panel). Fairness: nothing in the first 30 seconds on a map, nothing during a cinematic, panel, teaching card, airlock cycle, elevator ride or fade, and at least 60 seconds between two of a kind. Every storm draws a **different real flare** from the archive (18 events, 2022–2025). Repeats compound: dose adds up storm after storm, and each meteoroid hit needs its own spare part. Hazards don't cost a mission day; a sheltered outpost storm still fades you into the shelter. Each run has a seed (`?seed=1234` in dev builds), and `?hazards=none` or `?hazards=max` turns them off or to the most the rules allow. A typical 20-minute run expects about 0.3 storms in transit, 1.8 at the outpost and 1.1 meteoroids.
 
 **The Mission Handbook** replaces the debrief: a two-page book with bookmark tabs, written for a 7-year-old (every sentence 15 words or fewer, no vague words, every change with its number and its reason). ← → turn the pages, 1–5 jump to a bookmark, Esc returns to the cover; the first time it opens, a four-step guide shows how (the "?" on the cover brings it back).
+
 - **The cover:** the ending, the astronaut and mission days, why it ended this way, the verdict and the contents.
 - **Meters over time:** how to read the charts, then one page per meter: what it means, the chart (safe, warning and danger zones, numbered choices, suns and rocks for luck), where it ended, and the 2–4 biggest reasons it moved, each dated with its number.
 - **Mission log:** by day (Launch day, On the way to the Moon, Day 1…, The last day): every choice, every storm (marked Luck), every night ("While you slept"), and each consequence linked back to the choice that caused it (click a link to jump there).
@@ -182,13 +183,13 @@ While riding you can't walk; pausing freezes the car where it is. In third perso
 
 A fictional crew vehicle on its way to the Moon: a cone-shaped cockpit capsule docked, through a short round tunnel, to a habitation module.
 
-| Module | Inside size | What's there |
-| --- | --- | --- |
-| Cockpit | 3.3 m long, 3.0 m wide, 2.6 m tall, narrowing at the front | Four seats, a curved dashboard, two forward windows, the console for challenge 5 (pick the landing site) |
-| Docking tunnel | 1.8 m long, 1.2 m round | A 1.0 m round hatch at each end, with hazard-striped rims; handrails |
-| Galley | 4.8 m long, 2.4 × 2.6 m | Food warmer and drink station, fold-down table, laptop, four sleeping bags in wall pockets, a round porthole |
-| Life support | 2.8 m long | Racks of fans, filters, tanks and avionics, a CO₂ scrubber readout, the console for challenge 3 (scrubber fault) |
-| Storm shelter | 1.8 × 1.8 m alcove | Walls lined with water and soft stowage bags, which absorb radiation; the console for challenge 4 (storm in transit) |
+| Module         | Inside size                                                | What's there                                                                                                         |
+| -------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Cockpit        | 3.3 m long, 3.0 m wide, 2.6 m tall, narrowing at the front | Four seats, a curved dashboard, two forward windows, the console for challenge 5 (pick the landing site)             |
+| Docking tunnel | 1.8 m long, 1.2 m round                                    | A 1.0 m round hatch at each end, with hazard-striped rims; handrails                                                 |
+| Galley         | 4.8 m long, 2.4 × 2.6 m                                    | Food warmer and drink station, fold-down table, laptop, four sleeping bags in wall pockets, a round porthole         |
+| Life support   | 2.8 m long                                                 | Racks of fans, filters, tanks and avionics, a CO₂ scrubber readout, the console for challenge 3 (scrubber fault)     |
+| Storm shelter  | 1.8 × 1.8 m alcove                                         | Walls lined with water and soft stowage bags, which absorb radiation; the console for challenge 4 (storm in transit) |
 
 **The launch** (about 70 seconds, **Skip** or Enter skips it at any moment): strapped into the front left seat, the cockpit screen counts down from T-10 all the way to zero while the cabin lights dim, and the consoles say **Preparing for launch**; at T-6 the five F-1 engines start, a low rumble through the seat, and they say **Launching** (back in the cockpit after the climb, they show their tasks again). The windows are covered by the escape tower's shroud (the boost protective cover), as on Apollo. At T-0 it cuts outside for one continuous cinematic, with letterbox bars and the HUD hidden, and a small label naming each event as it happens. The rocket is the Saturn V, at its real size (110.8 m), and the events follow its Moon flights in order: liftoff from the ground by the floodlit pad (steam from the water deluge rolling out of the flame trench, "LIFTOFF", the hold-down arms letting go and the rocket rising slowly, clearing the tower after about 9 s, the camera tilting up after it); the climb from the shore, the rocket rolling and pitching over the ocean, its plume high up still in sunlight; then high up, with the sky deep blue fading to black and Earth's curve below: **first stage separation** (the F-1s stop, retro-rockets puff and the empty first stage falls back tumbling; the second stage's five J-2s light, and the interstage ring round them drops away a few seconds later), **escape tower jettison** (its motor pulls the shroud off the capsule), **second stage separation** (it drops back with its interstage and the third stage's one J-2 lights, its plume spreading very wide in the vacuum), a fade, "Later, in Earth orbit", **trans-lunar injection** on the third stage over a large Earth, and **spacecraft separation** (the command and service module drifts ahead and the adapter's four panels open like petals, showing the lunar module inside the empty stage). The mission clock shows times close to Apollo 11's. Then back in the cockpit, already weightless: the pen and checklist drifting, Earth through the open windows, a card about microgravity, and **Unbuckle** (E) to float up out of the seat. The crew access arm is swung away in every outside shot. Times are squeezed.
 
@@ -208,26 +209,26 @@ The spacecraft lands near the Moon's south pole. You step off at the foot of the
 
 **The outpost** stands open on the surface: each room is a habitat module (the corridor a long central module with the rest butting onto it), in a white quilted thermal blanket with gold foil panels and grey regolith dust up its lower parts, with radiators on the roofs, outside lamps, handrails, cable runs to the solar field and antenna, and a vent mast with a beacon, all on a levelled pad. Windows are cut straight through the modules' walls. The airlock has a porch with a short ramp, a framed door and a lit sign. Only the storm shelter is covered in regolith bags (loose lunar soil shields the crew from radiation), with a sign saying so: it's the safe place in a solar storm.
 
-| Room | What's there |
-| --- | --- |
-| Airlock | Suit hooks, a pressure gauge, the inner and outer doors, a window onto the rover parking |
-| Power bay | Battery racks, power distribution, the console for challenge 6 (wake the base) |
-| Greenhouse | Hydroponic shelves under pink-purple grow lights, water, misting, the console for challenge 7 |
-| Command | The console for challenge 12 (lunar night), the comms rack, a window toward Earth low on the horizon |
-| Storm shelter | In the middle, lined with water and supplies, the console for challenge 10 (solar storm) |
-| Crew quarters | Four bunks with curtains, lockers, a table, the console for challenge 9 (tired crew) |
+| Room          | What's there                                                                                         |
+| ------------- | ---------------------------------------------------------------------------------------------------- |
+| Airlock       | Suit hooks, a pressure gauge, the inner and outer doors, a window onto the rover parking             |
+| Power bay     | Battery racks, power distribution, the console for challenge 6 (wake the base)                       |
+| Greenhouse    | Hydroponic shelves under pink-purple grow lights, water, misting, the console for challenge 7        |
+| Command       | The console for challenge 12 (lunar night), the comms rack, a window toward Earth low on the horizon |
+| Storm shelter | In the middle, lined with water and supplies, the console for challenge 10 (solar storm)             |
+| Crew quarters | Four bunks with curtains, lockers, a table, the console for challenge 9 (tired crew)                 |
 
 **The airlock:** only one door is ever open. Press E at the panel inside (or at the button by a shut door) to cycle: one door closes, the gauge climbs to 101 kPa (or falls to 0), then the other door opens. Halfway through you change suits, the coverall indoors and the surface suit outside. **Power:** the outpost's lights follow the Power meter, dimmer when it's low and red when it's critical.
 
 **The surface** is about 800 m across, edged by a ring of boulders 370 m out. Its large-scale shape is **real NASA LOLA laser altimeter data** from near the south pole (`src/maps/lolaPatch.ts`, fetched by `tools/fetch-lola.mjs`); craters, rocks and boulders are added on top.
 
-| Place | Distance from the outpost | What's there |
-| --- | --- | --- |
-| Landing pad | about 65 m west | The lunar module (the CC BY-NC Sketchfab model "Apollo Lunar Module" by jgut028, at real size: footpads 9 m apart, 7 m tall), a ring of marker lights, the path of lights to the airlock from the foot of its ladder |
-| Solar field | about 50 m south-east | Six tall upright panels facing the low Sun; one is damaged (challenge 11) |
-| Comms antenna | about 30 m north-east | A dish on a mast pointed at Earth on the horizon |
-| Regolith site | about 115 m west | A small excavator and heaps of dug regolith |
-| Ice crater | about 290 m east | A 90 m crater whose floor never sees the Sun; sample the ice there (challenge 8) |
+| Place         | Distance from the outpost | What's there                                                                                                                                                                                                         |
+| ------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Landing pad   | about 65 m west           | The lunar module (the CC BY-NC Sketchfab model "Apollo Lunar Module" by jgut028, at real size: footpads 9 m apart, 7 m tall), a ring of marker lights, the path of lights to the airlock from the foot of its ladder |
+| Solar field   | about 50 m south-east     | Six tall upright panels facing the low Sun; one is damaged (challenge 11)                                                                                                                                            |
+| Comms antenna | about 30 m north-east     | A dish on a mast pointed at Earth on the horizon                                                                                                                                                                     |
+| Regolith site | about 115 m west          | A small excavator and heaps of dug regolith                                                                                                                                                                          |
+| Ice crater    | about 290 m east          | A 90 m crater whose floor never sees the Sun; sample the ice there (challenge 8)                                                                                                                                     |
 
 **The rover** is parked just south of the airlock: an open two-seater with treaded wheels under fenders, an umbrella antenna and a TV camera at the front (the CC BY Sketchfab model "Lunar Rover" by Versal, rebuilt for the game; see "Rebuilding the models"). Its front wheels steer and all four roll as it drives. Press E beside the driver's seat to get in, and E again (when stopped) to get out. W accelerates, S brakes then reverses, A and D steer, Shift gives a short boost, Space is the handbrake, and V switches between the driver's seat and a chase camera. There is no physics engine: the body follows the ground under its four wheels, rocks over bumps, and can leave the ground over a crest and float down at lunar gravity. Boulders, the outpost's modules and slopes steeper than about 26 degrees stop it. Its headlights come on by themselves in deep shadow.
 
@@ -239,11 +240,11 @@ The surface and lighting: see `src/scene/kit/lunar.ts`. The Sun is 3 degrees up,
 
 Pick **Low**, **Medium** or **High** in Settings, in the lobby or the pause menu (remembered next time). Medium is the default.
 
-| Tier | What it does |
-| --- | --- |
-| Low | Pixel ratio 1, FXAA, no shadows, no environment map, no glass blur behind HUD panels. The fallback. |
+| Tier   | What it does                                                                                        |
+| ------ | --------------------------------------------------------------------------------------------------- |
+| Low    | Pixel ratio 1, FXAA, no shadows, no environment map, no glass blur behind HUD panels. The fallback. |
 | Medium | Pixel ratio up to 1.5, MSAA, ACES tone mapping, environment map, static shadows from one key light. |
-| High | Pixel ratio up to 2, plus ambient occlusion and bloom on emissive surfaces only. |
+| High   | Pixel ratio up to 2, plus ambient occlusion and bloom on emissive surfaces only.                    |
 
 If the frame rate stays under 40 for 3 seconds while playing, the game drops one tier and says so. Shadows are rendered for the first 20 frames of a map and then frozen, because nothing that casts a shadow moves.
 
@@ -251,64 +252,64 @@ If the frame rate stays under 40 for 3 seconds while playing, the game drops one
 
 ## Where things are
 
-| Path | What it holds |
-| --- | --- |
-| `ROADMAP.md` | Phases 0 to 12, from setup to judge-ready. |
-| `src/state/mission.ts` | Mission state and rules (meters, food, crew health, dose, remembered choices). No rendering. |
-| `src/state/store.ts` | The single zustand store: mission, current map, which screen is up (title, menu, game), play mode, HUD state. |
-| `src/state/settings.ts` | Mouse look, sound volumes and accessibility settings, with the audio hooks. |
-| `src/state/lobby.ts` | The lobby's moving parts: how far the astronaut is turned, where they stand on screen, the suit shown. |
-| `src/scene/lobby/LobbyStage.tsx` | The lobby in 3D: podium, astronaut, lights, the launch complex and the Saturn V behind, the drifting camera. |
-| `src/scene/saturnV.ts`, `src/scene/saturnLayout.ts`, `src/scene/SaturnVView.tsx` | The Saturn V: loading it once, building it whole (pad, lobby) or in its stages (launch cinematic), the floodlight glow, and where its parts are in metres. |
-| `src/data/credits.ts` | The NASA data and free assets used, named and credited: the MISSION DATA tab's list. |
-| `src/state/player.ts` | Player position and view, kept outside the store. |
-| `src/state/graphics.ts` | Graphics tiers: low, medium (default), high. |
-| `src/data/challenges.ts` | The twelve challenges as data (see `docs/CHALLENGE_TEMPLATE.md`). Effects are game units; dose is in 3.125 mSv points. |
-| `src/data/sources.json` | 21 real NASA and CSA references (each opened and read) and, for every outcome, which back it and why. `reviewer` waits for a person on the team. |
-| `src/data/science.ts` | The real figures (dose limits, the lunar night, food per day...) and how they become game numbers. |
-| `src/data/spaceWeather.ts` | The live 30-day space weather summary from DONKI (api.nasa.gov). |
-| `src/data/osdr-archive.json`, `osdr.ts` | Five archived OSDR studies (`node tools/fetch-osdr.mjs`) and how each links to the game. |
-| `src/data/glossary.ts` | Science words explained the first time they appear. |
-| `src/maps/types.ts` | The map data format: rooms, walls with doors and windows, consoles, markers, props, spawn, exterior. |
-| `src/maps/launchCenter.ts` | Map 1, the launch center. |
-| `src/maps/spacecraft.ts` | Map 2, the spacecraft. |
-| `src/maps/outpost.ts` | Map 3, the lunar outpost and the surface around it. |
-| `src/scene/airlock.ts` | The airlock cycle: doors, pressure, suit change. |
-| `src/scene/rover.ts` | Rover driving, terrain following, battery and home line. |
-| `src/scene/RoverView.tsx` | The rover drawn: the model, its steering and rolling wheels, headlights, dust and wheel tracks. |
-| `tools/build-rover.py`, `tools/build-rover.mjs` | Build the rover model (`public/models/rover.glb`) from the CC BY Sketchfab model, headless in Blender. |
-| `src/scene/cards.ts` | Teaching cards: shown once each, from map data. |
-| `src/scene/kit/lunar.ts` | Lunar terrain heights (real LOLA data, near and wide, plus craters), the terrain mesh and cable runs. |
-| `src/scene/kit/lunarLight.ts` | The low Sun's light and long shadows, baked into light-map textures (the site at 1.25 m, the landscape round it coarser). |
-| `src/scene/kit/lunarPrebake.ts` | Works the outpost's terrain and light out in a background worker during the trip, ready for the landing. |
-| `src/scene/kit/outpostModules.ts` | The outpost's modules outside: shells, windows, porch, roof kit, the storm shelter's bags. |
-| `tools/checks/` | Headless checks: `npx tsx tools/checks/outpost.mts` (and `spacecraft.mts`, `launch.mts`, `cinematic.mts`, `menu.mts`, `elevators.mts`, `suit.mts`, `decisions.mts`, `run.mts`, `data.mts`). |
-| `src/state/flight.ts` | Launch progress, transit progress to the Moon, cabin shake and lights. |
-| `src/scene/floating.ts` | Floating in microgravity: inertia, whole-body collision, lining up with hatches, Easy float. |
-| `src/maps/floatSpace.ts` | 3D free space, solid props and the body's spheres, for floating collision. |
-| `src/scene/sequences.ts` | Drives the launch and landing: shots, events, cockpit effects, the readout. |
-| `src/scene/cinematic/` | The cinematic system: scripts (shots, camera keys, timed events with captions and sound hooks), the launch pad and landing site stages (built while the cockpit part plays, disposed after), particles and flames. |
-| `src/scene/Space.tsx` | Stars, Sun, Earth and Moon seen from the spacecraft. |
-| `public/textures/` | NASA Earth and Moon maps. |
-| `src/maps/registry.ts` | Every map the game can load. New maps are added here. |
-| `src/maps/collision.ts` | Where the player may stand, built from the map data. No physics engine. |
-| `src/maps/navigation.ts` | Click-to-walk routes through door centres. |
-| `src/scene/materials/` | Every surface type: procedural textures from height fields, canvas textures (decal atlas, screens), the material library. |
-| `src/scene/kit/` | Map data to merged geometry: interior and wall dressing, props, consoles, the outside world, and the spacecraft's padded modules (`station.ts`, `spacecraftProps.ts`). |
-| `src/scene/` | The 3D view, sky, lights, post-processing, player controls, pointer lock and play modes. |
-| `src/scene/palette.ts` | Lighting, sky and fog colours. |
-| `src/styles/` | Design tokens, global styles and the shared liquid-glass panel. |
-| `src/hud/` | Meters, crew, challenge banner, minimap, prompts, panels, toast, dev counter. |
-| `src/hud/menu/` | The title and lobby menu (PLAY, ASTRONAUT, SETTINGS, MISSION DATA), the pause menu and their styles. |
-| `src/character/` | The astronaut: model loading, outfits, animation, skin tone, hair and eye colour, name tag and patches. |
-| `src/state/astronaut.ts` | The player's astronaut: name checks, word filter, suggestions, the look's choices and skin tone colours, storage, `fillName`. |
-| `public/models/` | The two astronaut bodies, the NASA Moon suit fitted to each, the rover, the Saturn V and the lunar module (built, compressed GLB). |
-| `tools/build-astronauts.mjs` | Builds the female and male astronaut models from the CC0 source packs. |
-| `tools/build-nasa-suit.mjs` | Builds the Moon suit (`public/models/suit-artemis-<body>.glb`, or the earlier `suit-mark3-<body>.glb`) from a static suit model: fitted and weighted to each body's skeleton so it plays the body's clips, no Blender needed. |
-| `tools/build-saturn-v.mjs` | Builds the Saturn V model (`public/models/saturn-v.glb`) from the CC BY-ND Sketchfab model: compression only. |
-| `tools/build-lunar-module.mjs` | Builds the lander (`public/models/lunar-module.glb`) from the CC BY-NC Sketchfab model: real size, one mesh, one material. |
-| `src/scene/lunarModule.ts`, `src/scene/lunarModuleLayout.ts`, `src/scene/LunarModuleView.tsx` | The lunar module: loading it once, where its parts are in metres, and drawing it where a map's `lander` prop stands. |
-| `ASSETS.md` | Source and licence of every model, image and sound. |
+| Path                                                                                          | What it holds                                                                                                                                                                                                                 |
+| --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ROADMAP.md`                                                                                  | Phases 0 to 12, from setup to judge-ready.                                                                                                                                                                                    |
+| `src/state/mission.ts`                                                                        | Mission state and rules (meters, food, crew health, dose, remembered choices). No rendering.                                                                                                                                  |
+| `src/state/store.ts`                                                                          | The single zustand store: mission, current map, which screen is up (title, menu, game), play mode, HUD state.                                                                                                                 |
+| `src/state/settings.ts`                                                                       | Mouse look, sound volumes and accessibility settings, with the audio hooks.                                                                                                                                                   |
+| `src/state/lobby.ts`                                                                          | The lobby's moving parts: how far the astronaut is turned, where they stand on screen, the suit shown.                                                                                                                        |
+| `src/scene/lobby/LobbyStage.tsx`                                                              | The lobby in 3D: podium, astronaut, lights, the launch complex and the Saturn V behind, the drifting camera.                                                                                                                  |
+| `src/scene/saturnV.ts`, `src/scene/saturnLayout.ts`, `src/scene/SaturnVView.tsx`              | The Saturn V: loading it once, building it whole (pad, lobby) or in its stages (launch cinematic), the floodlight glow, and where its parts are in metres.                                                                    |
+| `src/data/credits.ts`                                                                         | The NASA data and free assets used, named and credited: the MISSION DATA tab's list.                                                                                                                                          |
+| `src/state/player.ts`                                                                         | Player position and view, kept outside the store.                                                                                                                                                                             |
+| `src/state/graphics.ts`                                                                       | Graphics tiers: low, medium (default), high.                                                                                                                                                                                  |
+| `src/data/challenges.ts`                                                                      | The twelve challenges as data (see `docs/CHALLENGE_TEMPLATE.md`). Effects are game units; dose is in 3.125 mSv points.                                                                                                        |
+| `src/data/sources.json`                                                                       | 21 real NASA and CSA references (each opened and read) and, for every outcome, which back it and why. `reviewer` waits for a person on the team.                                                                              |
+| `src/data/science.ts`                                                                         | The real figures (dose limits, the lunar night, food per day...) and how they become game numbers.                                                                                                                            |
+| `src/data/spaceWeather.ts`                                                                    | The live 30-day space weather summary from DONKI (api.nasa.gov).                                                                                                                                                              |
+| `src/data/osdr-archive.json`, `osdr.ts`                                                       | Five archived OSDR studies (`node tools/fetch-osdr.mjs`) and how each links to the game.                                                                                                                                      |
+| `src/data/glossary.ts`                                                                        | Science words explained the first time they appear.                                                                                                                                                                           |
+| `src/maps/types.ts`                                                                           | The map data format: rooms, walls with doors and windows, consoles, markers, props, spawn, exterior.                                                                                                                          |
+| `src/maps/launchCenter.ts`                                                                    | Map 1, the launch center.                                                                                                                                                                                                     |
+| `src/maps/spacecraft.ts`                                                                      | Map 2, the spacecraft.                                                                                                                                                                                                        |
+| `src/maps/outpost.ts`                                                                         | Map 3, the lunar outpost and the surface around it.                                                                                                                                                                           |
+| `src/scene/airlock.ts`                                                                        | The airlock cycle: doors, pressure, suit change.                                                                                                                                                                              |
+| `src/scene/rover.ts`                                                                          | Rover driving, terrain following, battery and home line.                                                                                                                                                                      |
+| `src/scene/RoverView.tsx`                                                                     | The rover drawn: the model, its steering and rolling wheels, headlights, dust and wheel tracks.                                                                                                                               |
+| `tools/build-rover.py`, `tools/build-rover.mjs`                                               | Build the rover model (`public/models/rover.glb`) from the CC BY Sketchfab model, headless in Blender.                                                                                                                        |
+| `src/scene/cards.ts`                                                                          | Teaching cards: shown once each, from map data.                                                                                                                                                                               |
+| `src/scene/kit/lunar.ts`                                                                      | Lunar terrain heights (real LOLA data, near and wide, plus craters), the terrain mesh and cable runs.                                                                                                                         |
+| `src/scene/kit/lunarLight.ts`                                                                 | The low Sun's light and long shadows, baked into light-map textures (the site at 1.25 m, the landscape round it coarser).                                                                                                     |
+| `src/scene/kit/lunarPrebake.ts`                                                               | Works the outpost's terrain and light out in a background worker during the trip, ready for the landing.                                                                                                                      |
+| `src/scene/kit/outpostModules.ts`                                                             | The outpost's modules outside: shells, windows, porch, roof kit, the storm shelter's bags.                                                                                                                                    |
+| `tools/checks/`                                                                               | Headless checks: `npx tsx tools/checks/outpost.mts` (and `spacecraft.mts`, `launch.mts`, `cinematic.mts`, `menu.mts`, `elevators.mts`, `suit.mts`, `decisions.mts`, `run.mts`, `data.mts`).                                   |
+| `src/state/flight.ts`                                                                         | Launch progress, transit progress to the Moon, cabin shake and lights.                                                                                                                                                        |
+| `src/scene/floating.ts`                                                                       | Floating in microgravity: inertia, whole-body collision, lining up with hatches, Easy float.                                                                                                                                  |
+| `src/maps/floatSpace.ts`                                                                      | 3D free space, solid props and the body's spheres, for floating collision.                                                                                                                                                    |
+| `src/scene/sequences.ts`                                                                      | Drives the launch and landing: shots, events, cockpit effects, the readout.                                                                                                                                                   |
+| `src/scene/cinematic/`                                                                        | The cinematic system: scripts (shots, camera keys, timed events with captions and sound hooks), the launch pad and landing site stages (built while the cockpit part plays, disposed after), particles and flames.            |
+| `src/scene/Space.tsx`                                                                         | Stars, Sun, Earth and Moon seen from the spacecraft.                                                                                                                                                                          |
+| `public/textures/`                                                                            | NASA Earth and Moon maps.                                                                                                                                                                                                     |
+| `src/maps/registry.ts`                                                                        | Every map the game can load. New maps are added here.                                                                                                                                                                         |
+| `src/maps/collision.ts`                                                                       | Where the player may stand, built from the map data. No physics engine.                                                                                                                                                       |
+| `src/maps/navigation.ts`                                                                      | Click-to-walk routes through door centres.                                                                                                                                                                                    |
+| `src/scene/materials/`                                                                        | Every surface type: procedural textures from height fields, canvas textures (decal atlas, screens), the material library.                                                                                                     |
+| `src/scene/kit/`                                                                              | Map data to merged geometry: interior and wall dressing, props, consoles, the outside world, and the spacecraft's padded modules (`station.ts`, `spacecraftProps.ts`).                                                        |
+| `src/scene/`                                                                                  | The 3D view, sky, lights, post-processing, player controls, pointer lock and play modes.                                                                                                                                      |
+| `src/scene/palette.ts`                                                                        | Lighting, sky and fog colours.                                                                                                                                                                                                |
+| `src/styles/`                                                                                 | Design tokens, global styles and the shared liquid-glass panel.                                                                                                                                                               |
+| `src/hud/`                                                                                    | Meters, crew, challenge banner, minimap, prompts, panels, toast, dev counter.                                                                                                                                                 |
+| `src/hud/menu/`                                                                               | The title and lobby menu (PLAY, ASTRONAUT, SETTINGS, MISSION DATA), the pause menu and their styles.                                                                                                                          |
+| `src/character/`                                                                              | The astronaut: model loading, outfits, animation, skin tone, hair and eye colour, name tag and patches.                                                                                                                       |
+| `src/state/astronaut.ts`                                                                      | The player's astronaut: name checks, word filter, suggestions, the look's choices and skin tone colours, storage, `fillName`.                                                                                                 |
+| `public/models/`                                                                              | The two astronaut bodies, the NASA Moon suit fitted to each, the rover, the Saturn V and the lunar module (built, compressed GLB).                                                                                            |
+| `tools/build-astronauts.mjs`                                                                  | Builds the female and male astronaut models from the CC0 source packs.                                                                                                                                                        |
+| `tools/build-nasa-suit.mjs`                                                                   | Builds the Moon suit (`public/models/suit-artemis-<body>.glb`, or the earlier `suit-mark3-<body>.glb`) from a static suit model: fitted and weighted to each body's skeleton so it plays the body's clips, no Blender needed. |
+| `tools/build-saturn-v.mjs`                                                                    | Builds the Saturn V model (`public/models/saturn-v.glb`) from the CC BY-ND Sketchfab model: compression only.                                                                                                                 |
+| `tools/build-lunar-module.mjs`                                                                | Builds the lander (`public/models/lunar-module.glb`) from the CC BY-NC Sketchfab model: real size, one mesh, one material.                                                                                                    |
+| `src/scene/lunarModule.ts`, `src/scene/lunarModuleLayout.ts`, `src/scene/LunarModuleView.tsx` | The lunar module: loading it once, where its parts are in metres, and drawing it where a map's `lander` prop stands.                                                                                                          |
+| `ASSETS.md`                                                                                   | Source and licence of every model, image and sound.                                                                                                                                                                           |
 
 ## Rebuilding the models
 
